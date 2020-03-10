@@ -30,119 +30,119 @@ categories:
   Library: 
     introduce: 开源库学习相关问题
   Eigen: 
-    introduce: VS使用相关问题
+    introduce: 
   Ceres Slover: 
-    introduce: VS使用相关问题
+    introduce: 
   TensorFlow: 
-    introduce: VS使用相关问题
+    introduce: 
   OpenCV: 
-    introduce: VS使用相关问题
+    introduce: 
   SiftGPU: 
-    introduce: VS使用相关问题
+    introduce: 
   OpenMVG: 
-    introduce: VS使用相关问题
+    introduce: 
   COLMAP: 
-    introduce: VS使用相关问题
+    introduce: 
   sba: 
-    introduce: VS使用相关问题
+    introduce: 
   pba: 
-    introduce: VS使用相关问题
+    introduce: 
   GDAL: 
-    introduce: VS使用相关问题
+    introduce: 
   OpenLayers: 
-    introduce: VS使用相关问题
+    introduce: 
 ##
   SoftWare: 
     introduce: 行业软件使用相关问题
   MicroSoft Office: 
-    introduce: VS使用相关问题
+    introduce: 
   Smart3D: 
-    introduce: VS使用相关问题
+    introduce: 
   MetaShape: 
-    introduce: VS使用相关问题
+    introduce: 
   MeshLab: 
-    introduce: VS使用相关问题
+    introduce: 
   VisualSfM: 
-    introduce: VS使用相关问题
+    introduce: 
   Arcgis: 
-    introduce: VS使用相关问题
+    introduce: 
   Geoserver: 
-    introduce: VS使用相关问题
+    introduce: 
 ##
   Tool: 
     introduce: 开发工具相关问题
   Git: 
-    introduce: VS使用相关问题
+    introduce: 
   Github: 
-    introduce: VS使用相关问题
+    introduce: 
   CMake: 
-    introduce: VS使用相关问题
+    introduce: 
   Hexo: 
     introduce: 从零开始，打造一款干净、整洁的个人博客。
 ##
   DataBase: 
     introduce: 数据库相关问题
   MySQL: 
-    introduce: VS使用相关问题
+    introduce: 
   PostgreSQL: 
-    introduce: VS使用相关问题
+    introduce: 
   Redis: 
-    introduce: VS使用相关问题
+    introduce: 
 ##
   Language: 
-    introduce: VS使用相关问题
+    introduce: 
   C/C++: 
-    introduce: VS使用相关问题
+    introduce: 
   Java: 
-    introduce: VS使用相关问题
+    introduce: 
   HTML/CSS/JS: 
-    introduce: VS使用相关问题
+    introduce: 
 ##
   OJ: 
-    introduce: VS使用相关问题
+    introduce: 
   LeetCode: 
-    introduce: VS使用相关问题
+    introduce: 
 #################################################################
   Math: 
-    introduce: VS使用相关问题
+    introduce: 
 ##
   Data Structure & Algorithm: 
-    introduce: VS使用相关问题
+    introduce: 
   Data Structure: 
-    introduce: VS使用相关问题
+    introduce: 
   Algorithm: 
-    introduce: VS使用相关问题
+    introduce: 
 ##
   DataSet: 
-    introduce: VS使用相关问题
+    introduce: 
 ##
   Theory: 
-    introduce: VS使用相关问题
+    introduce: 
 ##
   Article: 
-    introduce: VS使用相关问题
+    introduce: 
 ##
   Book: 
-    introduce: VS使用相关问题
+    introduce: 
 #################################################################
   Comic: 
-    introduce: 那些年，那些漫画。
+    introduce: 那些年，那些动漫。
   灌篮高手: 
     introduce: 樱木花道为什么要打篮球？
   火影忍者: 
     introduce: 苍穹作漩，大地为涡，此生争鸣，唯爱一人。
   海贼王: 
-    introduce: VS使用相关问题
+    introduce: 
   死神: 
-    introduce: VS使用相关问题
+    introduce: 
   进击的巨人: 
-    introduce: VS使用相关问题
+    introduce: 
 #################################################################
   Others: 
-    introduce: VS使用相关问题
+    introduce: 
 #################################################################
   AboutMe: 
-    introduce: VS使用相关问题
+    introduce: 
   
   # 标签介绍
 # tags
@@ -154,103 +154,103 @@ tags:
     introduce: Ubuntu从入门到放弃。
 ##
   VS: 
-    introduce: VS使用相关问题
+    introduce: 
   VSCode: 
     introduce: VSCode使用相关问题
   Eclipse: 
     introduce: Eclipse使用相关问题
 ##
   Eigen: 
-    introduce: VS使用相关问题
+    introduce: 
   Ceres Slover: 
-    introduce: VS使用相关问题
+    introduce: 
   TensorFlow: 
-    introduce: VS使用相关问题
+    introduce: 
   OpenCV: 
-    introduce: VS使用相关问题
+    introduce: 
   SiftGPU: 
-    introduce: VS使用相关问题
+    introduce: 
   OpenMVG: 
-    introduce: VS使用相关问题
+    introduce: 
   COLMAP: 
-    introduce: VS使用相关问题
+    introduce: 
   sba: 
-    introduce: VS使用相关问题
+    introduce: 
   pba: 
-    introduce: VS使用相关问题
+    introduce: 
   GDAL: 
-    introduce: VS使用相关问题
+    introduce: 
   OpenLayers: 
-    introduce: VS使用相关问题
+    introduce: 
 ##
   MicroSoft Office: 
-    introduce: VS使用相关问题
+    introduce: 
   Smart3D: 
-    introduce: VS使用相关问题
+    introduce: 
   MetaShape: 
-    introduce: VS使用相关问题
+    introduce: 
   MeshLab: 
-    introduce: VS使用相关问题
+    introduce: 
   VisualSfM: 
-    introduce: VS使用相关问题
+    introduce: 
   Arcgis: 
-    introduce: VS使用相关问题
+    introduce: 
   Geoserver: 
-    introduce: VS使用相关问题
+    introduce: 
 ##
   Git: 
-    introduce: VS使用相关问题
+    introduce: 
   Github: 
-    introduce: VS使用相关问题
+    introduce: 
   CMake: 
-    introduce: VS使用相关问题
+    introduce: 
   Hexo: 
-    introduce: 从零开始，打造一款干净、整洁的个人博客。
+    introduce: 从零开始，搭建一款干净、整洁的个人博客。
 ##
   MySQL: 
-    introduce: VS使用相关问题
+    introduce: 
   PostgreSQL: 
-    introduce: VS使用相关问题
+    introduce: 
   Redis: 
-    introduce: VS使用相关问题
+    introduce: 
 ##
   C/C++: 
-    introduce: VS使用相关问题
+    introduce: 
   Java: 
-    introduce: VS使用相关问题
+    introduce: 
   HTML/CSS/JS: 
-    introduce: VS使用相关问题
+    introduce: 
 ##
   LeetCode: 
-    introduce: VS使用相关问题
+    introduce: 
 #################################################################
   Math: 
-    introduce: VS使用相关问题
+    introduce: 
 ##
   字符串: 
-    introduce: VS使用相关问题
+    introduce: 
   二分法查找: 
-    introduce: VS使用相关问题
+    introduce: 
   SfM: 
-    introduce: VS使用相关问题
+    introduce: 
   SIFT: 
-    introduce: VS使用相关问题
+    introduce: 
   图像匹配: 
-    introduce: VS使用相关问题
+    introduce: 
 #################################################################
   灌篮高手: 
-    introduce: VS使用相关问题
+    introduce: 樱木花道为什么要打篮球？
   火影忍者: 
-    introduce: VS使用相关问题
+    introduce: 苍穹作漩，大地为涡，此生争鸣，唯爱一人。
   海贼王: 
-    introduce: VS使用相关问题
+    introduce: 
   死神: 
-    introduce: VS使用相关问题
+    introduce: 
   进击的巨人: 
-    introduce: VS使用相关问题
+    introduce: 
 #################################################################
   杂货铺: 
-    introduce: VS使用相关问题
+    introduce: 
 #################################################################
   AboutMe: 
-    introduce: VS使用相关问题
+    introduce: 
