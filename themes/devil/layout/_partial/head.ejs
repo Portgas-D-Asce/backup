@@ -1,0 +1,29 @@
+<meta charset="utf-8">
+<%
+  var title = page.title;
+  if (is_archive()){
+    title = theme.archives_title || 'Archives';
+    if (is_month()){
+      title += ': ' + page.year + '/' + page.month;
+    } else if (is_year()){
+      title += ': ' + page.year;
+    }
+  } else if (is_category()){
+    title = 'Categories: ' + page.category;
+  } else if (is_tag()){
+    title = 'Tags: ' + page.tag;
+  }
+%>
+<title>
+  <% if (title){ %>
+    <%= title %>
+  <% } else {%>
+    <%= config.title %>
+  <% } %>
+</title>
+
+<%- favicon_tag(theme.favicon) %>
+
+<%- css('css/style') %>
+<%- js('js/collide-bubble') %>
+<%- js('js/md5') %>

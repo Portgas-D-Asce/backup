@@ -1,0 +1,30 @@
+<div id="articles">
+  <% page.posts.forEach(function(item, index) { %>
+    <div class="abstract">
+      <a class="title" href="<%- url_for(item.path) %>"><%- item.title %></a>
+      <div class="tags">
+        <% item.tags.forEach(function(tag){ %>
+          <a class="tag" style="background-color: orange;" href="<%- url_for(tag.path) %>"><%- tag.name %></a>
+        <% }); %>
+      </div>
+      <div class="digest">
+        <%- item.excerpt || '啊，忘了写摘要' %>
+      </div>
+      <div class="statistic">
+        <%= item.date.format(config.date_format) %> <%= item.date.format(config.time_format) %>
+        |
+        阅读 (1) | 
+        <a>评论 (1)</a>
+      </div>
+    </div>
+  <% }); %>
+
+  <div class="page">
+    <%- paginator({
+      prev_text: '',
+      next_text: '',
+      end_size: 1,
+      mid_size: 2
+    }) %>
+  </div>
+</div>

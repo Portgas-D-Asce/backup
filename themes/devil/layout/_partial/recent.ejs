@@ -1,0 +1,11 @@
+<div id="recent">
+  <h3><%- __('recent_posts') %></h3>
+  <hr>
+  <% site.posts.sort('date', -1).limit(6).each(function(post){ %>
+    <p>
+      <a href="<%- url_for(post.path) %>">
+        <%= post.title.substring(0, 50) %>
+      </a>
+    </p>
+  <% }) %>
+</div>
