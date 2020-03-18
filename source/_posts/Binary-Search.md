@@ -3,7 +3,7 @@ title: Binary Search
 tags:
   - 二分法查找
 categories:
-  - [Data Structure & Algorithm, Algorithm]
+- [Data Structure & Algorithm]
 date: 2020-01-02 20:59:53
 ---
 二分法查找。

@@ -3,7 +3,7 @@ title: LeetCode 43. Multiply Strings
 date: 2019-12-20 09:21:56
 categories:
 - [OJ, LeetCode]
-- [Data Structure & Algorithm, Algorithm]
+- [Data Structure & Algorithm]
 tags:
 - 字符串
 - LeetCode

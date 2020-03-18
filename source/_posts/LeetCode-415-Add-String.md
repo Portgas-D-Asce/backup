@@ -3,7 +3,7 @@ title: LeetCode 415. Add String
 date: 2019-12-20 09:06:41
 categories:
 - [OJ, LeetCode]
-- [Data Structure & Algorithm, Algorithm]
+- [Data Structure & Algorithm]
 tags:
 - 字符串
 - LeetCode
