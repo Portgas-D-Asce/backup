@@ -226,10 +226,22 @@ tags:
 #################################################################
   Math: 
     introduce: 
+  Linear Programming:
+    introduce:
+  Convex Optimization:
+    introduce:
+  Least Square:
+    introduce:
 ##
   字符串: 
     introduce: 
   二分法查找: 
+    introduce: 
+  排序: 
+    introduce: 
+  链表: 
+    introduce: 
+  二叉树: 
     introduce: 
   SfM: 
     introduce: 

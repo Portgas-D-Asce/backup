@@ -91,27 +91,12 @@ ignore:
 # Theme
 theme: devil
 
-# Deployment
-deploy:
-  type: 'git'
-  repository: 
-    github: git@github.com:Portgas-D-Asce/Portgas-D-Asce.github.io.git
-  branch: master
-
 # Markdown-it
 #markdown: 'zero'
 #markdown: 'default'
 markdown: 'commonmark'
 
-#　Backup
-backup:
-  type: git
-  theme: devil
-  message: backup
-  repository: #可以备份到多个仓库
-    github: git@github.com:Portgas-D-Asce/backup.git
-
-#　Gitalk
+#Gitalk
 gitalk:
   enable: true #用来做启用判断可以不用
   owner: Portgas-D-Asce #Github 用户名,
@@ -119,6 +104,21 @@ gitalk:
   admin: Portgas-D-Asce #Github 用户名,
   clientID: 44d043e14172988e852d #`Github Application clientID`
   clientSecret: 8e341ed76d50a62e8716180d55d2099782a2aa59 #`Github Application clientSecret`
+
+# Deployment
+deploy:
+  type: 'git'
+  repository: 
+    github: git@github.com:Portgas-D-Asce/Portgas-D-Asce.github.io.git
+  branch: master
+
+#Backup
+backup:
+  type: git
+  theme: devil
+  message: backup
+  repository: #可以备份到多个仓库
+    github: git@github.com:Portgas-D-Asce/backup.git
 
 # hexo-neat
 # 博文压缩
