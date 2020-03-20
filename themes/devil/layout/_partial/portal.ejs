@@ -7,7 +7,7 @@
 
   <% site.tags.data.forEach(function(tag){ %>
     <a class="pic bubble" href="<%- url_for(tag.path) %>" title="<%- tag.name %>">
-      <%- tag.name %>&nbsp;&nbsp;(<%- tag.length %>)
+      <%- tag.name %>
     </a>
   <% }); %>  
 </div>
