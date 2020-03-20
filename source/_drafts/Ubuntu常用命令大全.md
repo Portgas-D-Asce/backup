@@ -40,6 +40,11 @@ ls -ll
 dpkg --list
 sudo apt-get --purge remove 要卸载软件名称（--purge：删除配置文件）
 ```
-
+8、管道
+解决终端显示内容不全问题。
+```
+命令 |  more 
+命令 |  less
+```
 
 
