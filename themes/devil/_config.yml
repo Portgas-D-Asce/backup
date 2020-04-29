@@ -239,9 +239,7 @@ tags:
     introduce: 
   数组: 
     introduce: 
-  栈: 
-    introduce: 
-  队列: 
+  栈+队列: 
     introduce: 
   链表: 
     introduce: 
