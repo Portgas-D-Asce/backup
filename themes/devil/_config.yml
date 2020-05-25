@@ -1,3 +1,4 @@
+
 # Portal
 favicon: css/image/favicon.ico
 nickname: Portgas·D·Asce
@@ -76,6 +77,8 @@ categories:
   Github: 
     introduce: 
   CMake: 
+    introduce: 
+  Perf: 
     introduce: 
   Hexo: 
     introduce: 从零开始，打造一款干净、整洁的个人博客。
@@ -199,6 +202,8 @@ tags:
   Github: 
     introduce: 
   CMake: 
+    introduce: 
+  Perf: 
     introduce: 
   Hexo: 
     introduce: 从零开始，搭建一款干净、整洁的个人博客。
