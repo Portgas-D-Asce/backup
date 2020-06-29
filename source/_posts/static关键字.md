@@ -48,7 +48,7 @@ g++ -g main.cpp a.cpp b.cpp -o main
 ```
 
 解决方案
-```
+```C++
 //a.cpp
 static int x = 100;
 
