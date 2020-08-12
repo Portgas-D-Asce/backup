@@ -15,9 +15,7 @@
             var url = config.category_dir;
             if(category.url) 
               url += category.url + '/';
-            url += '/' + name.replace(/ /g, '-').replace('/', '-');
-            console.log(url); 
-            console.log(url_for(url))%>
+            url += '/' + name.replace(/ /g, '-').replace('/', '-'); %>
 
             <div class="abstract">
                 <a class="title" href="<%- url_for(url) %>"><%- name %></a>
