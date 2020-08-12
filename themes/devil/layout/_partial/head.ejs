@@ -1,0 +1,48 @@
+<meta charset="utf-8">
+<!--页面logo-->
+<%- favicon_tag(theme.favicon) %>
+
+<!--页面标题-->
+<%
+  var title = page.title;
+  if (is_archive()){
+    title = theme.archives_title || 'Archives';
+    if (is_month()){
+      title += ': ' + page.year + '/' + page.month;
+    } else if (is_year()){
+      title += ': ' + page.year;
+    }
+  } else if (is_category()){
+    title = 'Categories: ' + page.category;
+  } else if (is_tag()){
+    title = 'Tags: ' + page.tag;
+  }
+%>
+<title>
+  <% if (title){ %>
+    <%= title %>
+  <% } else {%>
+    <%= config.title %>
+  <% } %>
+</title>
+
+<% if (title){ %>
+  <!--公式渲染插件-->
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.0.0/es5/latest?tex-mml-chtml.js">
+  </script>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      }
+    };
+  </script>
+<% } else {%>
+  <!--碰撞泡泡插件-->
+  <%- js('js/collide-bubble') %>
+<% } %>
+
+<!--页面样式及其它插件-->
+<%- css('css/style') %>
+<%- js('js/md5') %>

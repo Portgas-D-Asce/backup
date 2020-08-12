@@ -1,0 +1,17 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<div id="comments"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+  
+<script type="text/javascript">
+  //必须对pathname加密
+　//不能对href加密，不知道为什么，href会变导致加密结果不一致
+  const gitalk = new Gitalk({
+    clientID: '<%- config.gitalk.clientID %>',
+    clientSecret: '<%- config.gitalk.clientSecret %>',
+    id: md5(location.pathname),
+    repo: '<%- config.gitalk.repo %>',
+    owner: '<%- config.gitalk.owner %>',
+    admin: ['<%- config.gitalk.admin %>']
+  });
+  gitalk.render('comments');
+</script>

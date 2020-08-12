@@ -1,0 +1,96 @@
+
+# Portal
+favicon: css/image/favicon.ico
+nickname: Portgas·D·Asce
+motto: Nobody can save you except yourself.
+## Links
+links:
+  LeetCode: https://leetcode.com/portgas-d-asce/
+  Github: https://github.com/Portgas-D-Asce
+
+## Research Interests
+interests:
+  Computer Science:
+    introduce: 123
+  Math:
+    introduce: 456
+  Computer Vision:
+    introduce: 789
+  Machine Learning:
+    introduce: 0
+  About Me:
+    introduce: 111
+
+# 分类介绍
+# categories
+categories:
+#################################################################
+  Ubuntu: 
+    introduce: Ubuntu从入门到放弃。
+    interest: Computer Science
+    url: 
+  VSCode: 
+    introduce: VSCode使用相关问题
+    interest: Computer Science
+    url: 
+  Hexo: 
+    introduce: 从零开始，打造一款干净、整洁的个人博客。
+    interest: Computer Science
+    url:
+##
+  Python: 
+    introduce: 
+    interest:
+    url:
+  C/CXX: 
+    introduce: 
+    interest: Computer Science
+    url:
+  Data Structure & Algorithm: 
+    introduce: 
+    interest: Computer Science
+    url: 
+##
+  Advanced Mathematics:
+    introduce: 高数
+    interest: Math
+    url: 
+  Linear Algebra:
+    introduce: 线性代数
+    interest: Math
+    url: 
+  Probability Theory:
+    introduce: 概率论
+    interest: Math
+    url: 
+  Numerical Analysis:
+    introduce: 数值分析
+    interest: Math
+    url: 
+  Convex Optimization:
+    introduce: 凸优化
+    interest: Math
+    url: 
+##
+  Structure from Motion:
+    introduce: 
+    interest: Computer Vision
+    url: 
+  Image Processing:
+    introduce: 
+    interest: Computer Vision
+    url: 
+
+#################################################################
+  Comic: 
+    introduce: 那些年，那些动漫
+    interest: About Me
+    url:
+  Profile:
+    introduce: 个人简介
+    interest: About Me
+    url:
+  Store:
+    introduce: 我的杂货铺
+    interest: About Me
+    url:
