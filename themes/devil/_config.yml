@@ -37,13 +37,17 @@ categories:
     introduce: 从零开始，打造一款干净、整洁的个人博客。
     interest: Computer Science
     url:
+  Tool:
+    introduce:
+    interest: Computer Science
+    url:
 ##
   Python: 
     introduce: 
     interest:
     url:
   C/CXX: 
-    introduce: 
+    introduce: C/C++专栏。
     interest: Computer Science
     url:
   Data Structure & Algorithm: 
