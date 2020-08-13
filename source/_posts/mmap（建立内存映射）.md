@@ -13,12 +13,12 @@ mmap用来将一个文件内容映射到内存中，加快文件的访问。
 
 ## 1 mmap
 ### 1.1 头文件
-```
+```cpp
 #include <unistd.h>
 #include <sys/mman.h>
 ```
 ### 1.2 函数原型
-```
+```cpp
 void* mmap(void* start, size_t length, int prot, int flags, int fd, off_t offset);
 ```
 start：映射区的开始地址，通常设置为 NULL，表示由系统决定映射区的起始地址。
@@ -59,7 +59,7 @@ offset：表示映射文件的偏移量，通常设置为 0，表示从映射文
 - close关闭映射文件；
 
 以下为一个用 mmap 实现文件拷贝的例子：
-```
+```cpp
 #include <unistd.h>
 #include <sys/mman.h>
 #include <fcntl.h>
@@ -111,7 +111,7 @@ int main()
 }
 ```
 ps：另外一种获取映射文件大小的方法
-```
+```cpp
 //头文件
 #include <sys/stat.h>
 

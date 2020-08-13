@@ -45,12 +45,12 @@ future: true
 
 # _config.yml
 highlight:
+  enable: false
+prismjs:
   enable: true
-  auto_detect: false
+  preprocess: true
   line_number: true
   tab_replace: ''
-  wrap: true
-  hljs: false
 
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
@@ -93,11 +93,6 @@ ignore:
 # Theme
 theme: devil
 
-# Markdown-it
-#markdown: 'zero'
-#markdown: 'default'
-markdown: 'commonmark'
-
 #Gitalk
 gitalk:
   enable: true #用来做启用判断可以不用
@@ -121,20 +116,3 @@ backup:
   message: backup
   repository: #可以备份到多个仓库
     github: git@github.com:Portgas-D-Asce/backup.git
-
-# hexo-neat
-# 博文压缩
-neat_enable: true
-# 压缩html
-neat_html:
-  enable: true
-# 压缩css  
-neat_css:
-  enable: true
-# 压缩js
-neat_js:
-  enable: true
-  mangle: true
-  output:
-  compress:
-  exclude:

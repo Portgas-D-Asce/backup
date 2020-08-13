@@ -1,0 +1,51 @@
+<div id="toc" class="side">
+    <h3>目录</h3>
+    <hr>
+    <%- toc(page.content,{list_number:false}) %>
+</div>
+
+<div id="recent" class="side">
+    <h3><%- __('recent_posts') %></h3>
+    <hr>
+    <% site.posts.sort('date', -1).limit(6).each(function(post){ %>
+        <p>
+            <a href="<%- url_for(post.path) %>">
+                <%= post.title.substring(0, 50) %>
+            </a>
+        </p>
+    <% }) %>
+</div>
+
+<div id="categories" class="side">
+    <h3>Categories</h3>
+    <hr>
+    <%- list_categories(site.categories) %>
+</div>
+
+<div id="tags" class="side">
+    <h3>Tags</h3>
+    <hr>
+    <%- tagcloud(site.tags) %>
+</div>
+
+<div id="archives" class="side">
+    <h3>Archives</h3>
+    <hr>
+    <%- list_archives({type: 'yearly'}) %>
+</div>
+
+<div id="bgm">
+    <h3>Music</h3>
+    <hr>
+    <!-- require APlayer -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
+    <!-- require MetingJS -->
+    <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+  
+    <meting-js
+        server="netease"
+        type="playlist"
+        id="3119003139">
+    </meting-js>
+</div>

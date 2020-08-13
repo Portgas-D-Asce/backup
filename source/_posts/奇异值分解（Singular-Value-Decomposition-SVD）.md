@@ -120,7 +120,7 @@ $$\rho = \frac{k(m + n + 1)}{mn}$$
 
 
 本文基于 OpenCV 进行了实现，代码如下：
-```
+```cpp
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 

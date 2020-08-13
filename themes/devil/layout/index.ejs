@@ -1,5 +1,24 @@
-<%- partial('_partial/portal') %>
-<script type="text/javascript">
-    var box = new BubbleBox('portal');
-    box.go();
-</script>
+---
+layout: false
+---
+<!DOCTYPE html>
+<html>
+    <head><%- partial('_partial/head') %></head>
+    <div id="portal">
+        <div class="container">
+            <div><img class="logo"></div>
+            <h1><%= theme.nickname%></h1>
+            <h2><%= theme.motto%></h2>
+        </div>
+      
+        <% for(interest in theme.interests) { %>
+            <a class="pic bubble" href="<%- url_for(interest.replace(/ /g, '-')) %>">
+                <%- interest %>
+            </a>
+        <% } %>
+    </div> 
+    <script type="text/javascript">
+        var box = new BubbleBox('portal');
+        box.go();
+    </script>
+</html>

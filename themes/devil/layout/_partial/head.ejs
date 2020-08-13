@@ -26,22 +26,13 @@
   <% } %>
 </title>
 
-<% if (title){ %>
-  <!--公式渲染插件-->
-  <script type="text/javascript" id="MathJax-script" async
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.0.0/es5/latest?tex-mml-chtml.js">
-  </script>
-  <script>
-    MathJax = {
-      tex: {
-        inlineMath: [['$', '$'], ['\\(', '\\)']]
-      }
-    };
-  </script>
-<% } else {%>
+<% if (!title){ %>
   <!--碰撞泡泡插件-->
   <%- js('js/collide-bubble') %>
 <% } %>
+
+<!--代码高亮-->
+<%- css('css/prism/tomorrow') %>
 
 <!--页面样式及其它插件-->
 <%- css('css/style') %>

@@ -1,0 +1,42 @@
+<% var cls = 'header-';
+if(is_page()) {
+    cls += 'page';
+} else if(is_post()) {
+    cls += 'post';
+} else if(is_category()) {
+    cls += 'category';
+} else if(is_tag()) {
+    cls += 'tag';
+} else if(is_archive()) {
+    cls += 'archive';
+}%>
+<div id="header" class="<%- cls %>">
+    <div class="wrap">
+        <% if(is_page()) { %>
+            <div class="title"><%- page.title %></div>
+            <div class="introduce">
+                这货还没有介绍
+            </div>
+        <% } else if(is_category()) { %>
+            <div class="title"><%- page.category %></div>
+            <div class="introduce">
+                <%- theme.categories[page.category] ? theme.categories[page.category].introduce:'这货还没有介绍'  %>
+            </div>
+        <% } else if(is_tag()) { %>
+            <div class="title"><%- page.tag %></div>
+            <div class="introduce">
+                这货还没有介绍
+            </div>
+        <% } else if(is_archive()) { %>
+            <div class="title"><%- page.year %></div>
+            <div class="introduce">
+                这货还没有介绍
+            </div>
+        <% } else if(is_post()) { %>
+            <div class="title"><%- page.title %></div>
+            <div id="busuanzi_container_page_pv">
+                阅读量：<span id="busuanzi_value_page_pv"></span>
+            </div>
+        <% } %>
+    </div>
+</div>
