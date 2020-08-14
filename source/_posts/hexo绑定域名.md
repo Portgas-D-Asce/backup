@@ -1,5 +1,6 @@
 ---
 title: hexo绑定域名
+author: Portgas·D·Asce
 categories:
   - [Hexo]
 tags:

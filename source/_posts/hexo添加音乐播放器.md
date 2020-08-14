@@ -1,5 +1,6 @@
 ---
 title: hexo添加音乐播放器
+author: Portgas·D·Asce
 categories:
   - [Hexo]
 tags:

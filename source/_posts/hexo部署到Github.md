@@ -1,5 +1,6 @@
 ---
 title: hexo部署到Github
+author: Portgas·D·Asce
 categories:
   - [Hexo]
 tags:

@@ -1,5 +1,6 @@
 ---
 title: Ubuntu安装NVIDIA显卡驱动
+author: Portgas·D·Asce
 categories:
   - [Ubuntu]
 tags:

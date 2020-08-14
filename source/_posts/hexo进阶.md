@@ -1,5 +1,6 @@
 ---
 title: hexo进阶
+author: Portgas·D·Asce
 categories:
   - [Hexo]
 tags:

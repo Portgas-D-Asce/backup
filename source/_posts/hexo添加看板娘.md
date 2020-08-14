@@ -1,5 +1,6 @@
 ---
 title: hexo添加看板娘
+author: Portgas·D·Asce
 categories:
   - [Hexo]
 tags:

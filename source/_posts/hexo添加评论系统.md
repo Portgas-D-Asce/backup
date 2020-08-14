@@ -1,5 +1,6 @@
 ---
 title: hexo添加评论系统
+author: Portgas·D·Asce
 categories:
   - [Hexo]
 tags:

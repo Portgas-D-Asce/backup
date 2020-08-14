@@ -1,5 +1,6 @@
 ---
 title: 卡丹尔算法（Kadane's Algorithm）
+author: Portgas·D·Asce
 categories:
   - [Data Structure & Algorithm]
 tags:

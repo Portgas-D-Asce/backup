@@ -1,5 +1,6 @@
 ---
-title: '奇异值分解（Singular Value Decomposition, SVD）'
+title: 奇异值分解（Singular Value Decomposition, SVD）
+author: Portgas·D·Asce
 categories:
   - [Image Processing]
   - [Linear Algebra]

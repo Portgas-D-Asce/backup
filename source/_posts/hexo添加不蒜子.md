@@ -1,5 +1,6 @@
 ---
 title: hexo添加不蒜子
+author: Portgas·D·Asce
 categories:
   - [Hexo]
 tags:

@@ -1,5 +1,6 @@
 ---
 title: hexo入门
+author: Portgas·D·Asce
 categories:
   - [Hexo]
 tags:

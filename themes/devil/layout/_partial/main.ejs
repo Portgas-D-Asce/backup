@@ -25,6 +25,7 @@
 <% } else if(is_post()) { %>
     <div id="article">
         <div class="content">
+            <%- partial('article/copyright.ejs') %>
             <%- page.more%>
         </div>
         
@@ -32,6 +33,7 @@
             <%- partial('article/side') %>
         </div>
         <div class="helper"></div>
+
         <%- partial('article/preandnext') %>
         <%- partial('article/comments') %>
     </div>
@@ -41,8 +43,12 @@
           <div class="abstract">
             <a class="title" href="<%- url_for(item.path) %>"><%- item.title %></a>
             <div class="tags">
-              <% item.tags.forEach(function(tag){ %>
-                <a class="tag" style="background-color: orange;" href="<%- url_for(tag.path) %>"><%- tag.name %></a>
+              <% item.tags.forEach(function(tag){ var rand = Math.floor(Math.random() * 4 + 1); %>
+                <a class="tag-rec tag-rec-color<%- rand %>" href="<%- url_for(tag.path) %>">
+                  <div class="tag-tri tag-tri-color<%- rand %>"></div>
+                  <div class="tag-cir"></div>
+                  <%- tag.name %>
+                </a>
               <% }); %>
             </div>
             <div class="digest">
