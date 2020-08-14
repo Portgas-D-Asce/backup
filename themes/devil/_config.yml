@@ -1,6 +1,6 @@
-
+themename: Devil
 # Portal
-favicon: css/image/favicon.ico
+favicon: image/favicon.ico
 nickname: Portgas·D·Asce
 motto: Nobody can save you except yourself.
 ## Links
@@ -84,8 +84,7 @@ categories:
     introduce: 
     interest: Computer Vision
     url: 
-
-#################################################################
+##
   Comic: 
     introduce: 那些年，那些动漫
     interest: About Me
@@ -98,3 +97,41 @@ categories:
     introduce: 我的杂货铺
     interest: About Me
     url:
+
+#模块开关及其配置信息
+#toc
+toc:
+  enable: true
+
+#recent
+recent:
+  enable: true
+  num: 10
+
+#categories
+category:
+  enable: true
+
+#tags
+tag:
+  enable: true
+
+#archives
+archive:
+  enable: true
+
+#APlayer
+aplayer:
+  enable: true
+  server: netease
+  type: playlist
+  id: 3119003139
+
+#Gitalk
+gitalk:
+  enable: true #用来做启用判断可以不用
+  owner: Portgas-D-Asce #Github 用户名,
+  repo: Portgas-D-Asce.github.io #储存评论issue的github仓库名
+  admin: Portgas-D-Asce #Github 用户名,
+  clientID: 44d043e14172988e852d #`Github Application clientID`
+  clientSecret: 8e341ed76d50a62e8716180d55d2099782a2aa59 #`Github Application clientSecret`

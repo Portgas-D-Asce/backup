@@ -1,51 +1,67 @@
-<div id="toc" class="side">
-    <h3>目录</h3>
-    <hr>
-    <%- toc(page.content,{list_number:false}) %>
-</div>
+<% if(theme.toc.enable) { %>
+    <div id="toc" class="side">
+        <h3>目录</h3>
+        <hr>
+        <%- toc(page.content,{list_number:false}) %>
+    </div>
+<% } %>
 
-<div id="recent" class="side">
-    <h3><%- __('recent_posts') %></h3>
-    <hr>
-    <% site.posts.sort('date', -1).limit(6).each(function(post){ %>
-        <p>
-            <a href="<%- url_for(post.path) %>">
-                <%= post.title.substring(0, 50) %>
-            </a>
-        </p>
-    <% }) %>
-</div>
+<% if(theme.recent.enable) { %>
+    <div id="recent" class="side">
+        <h3><%- __('recent_posts') %></h3>
+        <hr>
+        <% site.posts.sort('date', -1).limit(theme.recent.num).each(function(post){ %>
+            <p>
+                <a href="<%- url_for(post.path) %>">
+                    <%= post.title.substring(0, 50) %>
+                </a>
+            </p>
+        <% }) %>
+    </div>
+<% } %>
 
-<div id="categories" class="side">
-    <h3>Categories</h3>
-    <hr>
-    <%- list_categories(site.categories) %>
-</div>
+<% if(theme.category.enable) { %>
+    <div id="categories" class="side">
+        <h3>Categories</h3>
+        <hr>
+        <%- list_categories(site.categories) %>
+    </div>
+<% } %>
 
-<div id="tags" class="side">
-    <h3>Tags</h3>
-    <hr>
-    <%- tagcloud(site.tags) %>
-</div>
+<% if(theme.tag.enable) { %>
+    <div id="tags" class="side">
+        <h3>Tags</h3>
+        <hr>
+        <%- tagcloud(site.tags) %>
+    </div>
+<% } %>
 
-<div id="archives" class="side">
-    <h3>Archives</h3>
-    <hr>
-    <%- list_archives({type: 'yearly'}) %>
-</div>
+<% if(theme.archive.enable) { %>
+    <div id="archives" class="side">
+        <h3>Archives</h3>
+        <hr>
+        <%- list_archives({type: 'yearly'}) %>
+    </div>
+<% } %>
 
-<div id="bgm">
-    <h3>Music</h3>
-    <hr>
-    <!-- require APlayer -->
+<% if(theme.aplayer.enable) { %>
+    <%- css('3rdParty/APlayer/APlayer') %>
+    <%- js('3rdParty/APlayer/APlayer') %>
+    <!-- require MetingJS -->
+    <%- js('3rdParty/APlayer/Meting') %>
+    <!-- you can also use cdn
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css">
     <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
-    <!-- require MetingJS -->
     <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-  
-    <meting-js
-        server="netease"
-        type="playlist"
-        id="3119003139">
-    </meting-js>
-</div>
+    -->
+
+    <div id="bgm">
+        <h3>Music</h3>
+        <hr>
+        <meting-js
+            server="<%- theme.aplayer.server %>"
+            type="<%- theme.aplayer.type %>"
+            id="<%- theme.aplayer.id %>">
+        </meting-js>
+    </div>
+<% } %>

@@ -3,37 +3,36 @@
 <%- favicon_tag(theme.favicon) %>
 
 <!--页面标题-->
-<%
-  var title = page.title;
-  if (is_archive()){
+<%var title = page.title;
+if (is_archive()){
     title = theme.archives_title || 'Archives';
     if (is_month()){
-      title += ': ' + page.year + '/' + page.month;
+        title += ': ' + page.year + '/' + page.month;
     } else if (is_year()){
-      title += ': ' + page.year;
+        title += ': ' + page.year;
     }
-  } else if (is_category()){
+} else if (is_category()){
     title = 'Categories: ' + page.category;
-  } else if (is_tag()){
+} else if (is_tag()){
     title = 'Tags: ' + page.tag;
-  }
-%>
+}%>
+
 <title>
-  <% if (title){ %>
-    <%= title %>
-  <% } else {%>
-    <%= config.title %>
-  <% } %>
+    <% if (title){ %>
+        <%= title %>
+    <% } else {%>
+        <%= config.title %>
+    <% } %>
 </title>
 
-<% if (!title){ %>
-  <!--碰撞泡泡插件-->
-  <%- js('js/collide-bubble') %>
+<% if (is_home()){ %>
+    <!--碰撞泡泡插件-->
+    <%- js('js/collide-bubble') %>
 <% } %>
 
 <!--代码高亮-->
-<%- css('css/prism/tomorrow') %>
+<%- css('3rdParty/prism/tomorrow') %>
 
-<!--页面样式及其它插件-->
+<!--页面样式-->
 <%- css('css/style') %>
-<%- js('js/md5') %>
+

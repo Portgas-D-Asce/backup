@@ -43,9 +43,6 @@ post_asset_folder: true
 relative_link: false
 future: true
 
-# _config.yml
-highlight:
-  enable: false
 prismjs:
   enable: true
   preprocess: true
@@ -77,7 +74,7 @@ meta_generator: true
 date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 ## Use post's date for updated date unless set in front-matter
-use_date_for_updated: false
+updated_option: false
 
 # Pagination
 ## Set per_page to 0 to disable pagination
@@ -92,15 +89,6 @@ ignore:
 
 # Theme
 theme: devil
-
-#Gitalk
-gitalk:
-  enable: true #用来做启用判断可以不用
-  owner: Portgas-D-Asce #Github 用户名,
-  repo: Portgas-D-Asce.github.io #储存评论issue的github仓库名
-  admin: Portgas-D-Asce #Github 用户名,
-  clientID: 44d043e14172988e852d #`Github Application clientID`
-  clientSecret: 8e341ed76d50a62e8716180d55d2099782a2aa59 #`Github Application clientSecret`
 
 # Deployment
 deploy:
