@@ -1,7 +1,9 @@
-<div id="copyright">
-    <div>本文作者： <%- page.author %></div>
-    <div>本文链接： <%- decodeURI(page.permalink) %></div>
-    <div>版权声明： 码字不易，尊重版权，转载请注明出处！</div>
-    <div>免责声明： 本文部分信息搜集自互联网，如若侵犯了您的相关权益，请告知，本站将立刻处理。</div>
-</div>
+<% if(theme.copyright.enable) {%>
+    <div id="copyright">
+        <div>本文作者： <%- page.author %></div>
+        <div>本文链接： <%- decodeURI(page.permalink) %></div>
+        <div>版权声明： <%- theme.copyright.copyright %></div>
+        <div>免责声明： <%- theme.copyright.disclaimer %></div>
+    </div>
 <br>
+<% } %>

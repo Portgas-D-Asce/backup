@@ -85,12 +85,12 @@ categories:
     interest: Computer Vision
     url: 
 ##
-  Comic: 
-    introduce: 那些年，那些动漫
-    interest: About Me
-    url:
   Profile:
     introduce: 个人简介
+    interest: About Me
+    url:
+  Comic: 
+    introduce: 那些年，那些追过的漫
     interest: About Me
     url:
   Store:
@@ -99,6 +99,13 @@ categories:
     url:
 
 #模块开关及其配置信息
+#copyright
+copyright:
+  enable: true
+  copyright: 码字不易，尊重版权，转载请注明出处！
+  disclaimer: 本文部分信息搜集自互联网，如若侵犯了您的相关权益，请告知，本站将立刻处理。
+
+
 #toc
 toc:
   enable: true
