@@ -1,10 +1,11 @@
 <footer id="footer">
     <div class="links">
-      <% for(var key in theme.links){ %>
-        <a href="<%- url_for(theme.links[key]) %>">
-          <span class="iconfont icon<%- key.toLowerCase() %>"></span>
+        <a href="<%- url_for(theme.links.Github) %>">
+          <span class="iconfont icon%>">&#xea0a;</span>
         </a>
-      <% } %>
+        <a href="<%- url_for(theme.links.LeetCode) %>">
+          <span class="iconfont icon%>">&#xebf3;</span>
+        </a>
     </div>
 
     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>

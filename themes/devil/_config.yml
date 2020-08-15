@@ -105,29 +105,40 @@ copyright:
   copyright: 码字不易，尊重版权，转载请注明出处！
   disclaimer: 本文部分信息搜集自互联网，如若侵犯了您的相关权益，请告知，本站将立刻处理。
 
+#top置顶
+top:
+  enable: true
 
-#toc
+#reproduce转载
+reproduce:
+  enable: true
+
+#wordcount字数统计
+wordcount: 
+  enable: true
+
+#toc目录
 toc:
   enable: true
 
-#recent
+#recent近期发表
 recent:
   enable: true
   num: 10
 
-#categories
+#categories分类
 category:
   enable: true
 
-#tags
+#tags标签云
 tag:
   enable: true
 
-#archives
+#archives日期归档
 archive:
   enable: true
 
-#APlayer
+#APlayer音乐播放器
 aplayer:
   enable: true
   server: netease
