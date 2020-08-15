@@ -44,7 +44,7 @@
     </div>
 <% } %>
 
-<% if(theme.aplayer.enable) { %>
+<% if(theme.meting.enable) { %>
     <%- css('3rdParty/APlayer/APlayer') %>
     <%- js('3rdParty/APlayer/APlayer') %>
     <!-- require MetingJS -->
@@ -54,14 +54,12 @@
     <script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
     -->
-
     <div id="bgm">
         <h3>Music</h3>
         <hr>
         <meting-js
-            server="<%- theme.aplayer.server %>"
-            type="<%- theme.aplayer.type %>"
-            id="<%- theme.aplayer.id %>">
+            auto="<%- theme.meting.url %>"
+            order="random">
         </meting-js>
     </div>
 <% } %>

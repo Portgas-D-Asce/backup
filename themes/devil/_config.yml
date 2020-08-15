@@ -139,12 +139,9 @@ archive:
   enable: true
 
 #APlayer音乐播放器
-aplayer:
+meting:
   enable: true
-  server: tencent
-  type: playlist
-  id: 7679023489
-
+  url: https://y.qq.com/n/yqq/playlist/7679023489.html
 #Gitalk
 gitalk:
   enable: true #用来做启用判断可以不用
