@@ -144,7 +144,6 @@ aplayer:
   server: tencent
   type: playlist
   id: 7679023489
-  order: random
 
 #Gitalk
 gitalk:
