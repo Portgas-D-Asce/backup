@@ -1,9 +1,9 @@
 <% if(theme.copyright.enable) {%>
     <div id="copyright">
-        <div>本文作者： <%- page.author %></div>
-        <div>本文链接： <%- decodeURI(page.permalink) %></div>
-        <div>版权声明： <%- theme.copyright.copyright %></div>
-        <div>免责声明： <%- theme.copyright.disclaimer %></div>
+        <p><b>本文作者：</b> <%- page.author %></p>
+        <p><b>本文链接：</b> <%- decodeURI(page.permalink) %></p>
+        <p><b>版权声明：</b> <%- theme.copyright.copyright %></p>
+        <p><b>免责声明：</b> <%- theme.copyright.disclaimer %></p>
     </div>
 <br>
 <% } %>
