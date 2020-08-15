@@ -141,9 +141,10 @@ archive:
 #APlayer音乐播放器
 aplayer:
   enable: true
-  server: netease
+  server: tencent
   type: playlist
-  id: 3119003139
+  id: 7679023489
+  order: random
 
 #Gitalk
 gitalk:
