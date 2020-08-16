@@ -140,7 +140,7 @@ archive:
 
 #APlayer音乐播放器
 meting:
-  enable: true
+  enable: false
   url: https://y.qq.com/n/yqq/playlist/7679023489.html
 #Gitalk
 gitalk:
