@@ -93,6 +93,14 @@ categories:
     introduce: 那些年，那些追过的漫
     interest: About Me
     url:
+  Movie:
+    introduce: 那些年，那些追过的漫
+    interest: About Me
+    url:
+  Book:
+    introduce: 那些年，那些追过的漫
+    interest: About Me
+    url:
   Store:
     introduce: 我的杂货铺
     interest: About Me
@@ -140,7 +148,7 @@ archive:
 
 #APlayer音乐播放器
 meting:
-  enable: false
+  enable: true
   url: https://y.qq.com/n/yqq/playlist/7679023489.html
 #Gitalk
 gitalk:
