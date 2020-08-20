@@ -37,7 +37,7 @@ live2d:
 ```
 ## 3 怎么没看到你的看板娘
 没有添加看板娘主要原因：
-- 没看到合适的模型（后面有时间，抽空看看怎么搞自己的模型，可以参考下面文献）；
+- 没看到合适的模型；
 
 ## 4 参考文献
 [给博客添加能动的看板娘(Live2D)-关于模型的二三事](https://imjad.cn/archives/lab/add-dynamic-poster-girl-with-live2d-to-your-blog-01/)
