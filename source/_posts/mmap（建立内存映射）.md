@@ -2,7 +2,7 @@
 title: mmap（建立内存映射）
 author: Portgas·D·Asce
 categories:
-  - [C/CXX]
+  - [C/C++]
 tags:
   - mmap
 date: 2020-07-16 18:41:54

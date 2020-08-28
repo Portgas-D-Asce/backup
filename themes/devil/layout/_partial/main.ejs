@@ -5,9 +5,14 @@
             if(category.interest == page.title) {
                 
                 var url = config.category_dir;
+                
                 if(category.url) 
                   url += category.url + '/';
-                url += '/' + name.replace(/ /g, '-').replace('/', '-').replace(/-&-/g, '-'); %>
+
+                var temp = name.replace(/\+/g, '');
+                temp = temp.replace(/[^a-zA-Z0-9]/g, '-');
+                temp = temp.replace(/-+/g, '-');
+                url += '/' + temp; %>
     
                 <div class="abstract">
                     <a class="title" href="<%- url_for(url) %>"><%- name %></a>
