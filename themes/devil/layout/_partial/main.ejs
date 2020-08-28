@@ -55,7 +55,7 @@
 
         <% page.posts.data.forEach(function(item, index) { %>
             <div class="abstract">
-                <%- partial('article/reproduce', {flag: item.reproduce, top: item.top}) %>
+                <%- partial('article/reproduce', {flag: item.reproduce}) %>
                 <%- partial('article/top', {top: item.top}) %>
 
                 <a class="title" href="<%- url_for(item.path) %>"><%- item.title %></a>
