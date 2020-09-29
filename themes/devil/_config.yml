@@ -33,8 +33,20 @@ categories:
     introduce: VSCode使用相关问题
     interest: Computer Science
     url: 
+  Vim: 
+    introduce: 
+    interest: Computer Science
+    url:
   Hexo: 
     introduce: 从零开始，打造一款干净、整洁的个人博客。
+    interest: Computer Science
+    url:
+  Git: 
+    introduce:
+    interest: Computer Science
+    url:
+  CMake: 
+    introduce:
     interest: Computer Science
     url:
   Tool:
@@ -48,6 +60,10 @@ categories:
     url:
   C/C++: 
     introduce: C/C++专栏。
+    interest: Computer Science
+    url:
+  gcc/g++: 
+    introduce: 
     interest: Computer Science
     url:
   Data Structure & Algorithm: 
@@ -106,6 +122,11 @@ categories:
     interest: About Me
     url:
 
+#年度归档
+archives:
+  2020: 
+    introduce: 最后的倔强。
+
 #模块开关及其配置信息
 #copyright
 copyright:
@@ -132,7 +153,7 @@ toc:
 #recent近期发表
 recent:
   enable: true
-  num: 10
+  num: 5
 
 #categories分类
 category:

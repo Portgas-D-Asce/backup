@@ -30,7 +30,11 @@ if(is_page()) {
         <% } else if(is_archive()) { %>
             <div class="title"><%- page.year %></div>
             <div class="introduce">
-                这货还没有介绍
+                <% 
+                    var number = new Number(page.year);
+                    var year = number.toString();
+                %>
+                <%- theme.archives[year] ? theme.archives[year].introduce:'这货还没有介绍'  %>
             </div>
         <% } else if(is_post()) { %>
             <div class="title"><%- page.title %></div>
