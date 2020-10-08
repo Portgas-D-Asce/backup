@@ -220,5 +220,9 @@ ar -q libmath.a add.o time.o minus.o
 ```
 ```
 
+-O1 -O2 -O3：优化等级
+```
+```
+
 
 
