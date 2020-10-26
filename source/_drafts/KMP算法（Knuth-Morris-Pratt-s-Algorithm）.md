@@ -40,6 +40,7 @@ KMP算法和Brute Force算法的主体思路是一样的，KMP 算法利用一�
 - 字符串 $bcabcabc$、$cabcabc$、$abcabc$、$bcabc$、$cabc$、$abc$、$bc$、$c$ 都是 $abcabcabc$ 的后缀，它们所构成的集合 $\{$ $bcabcabc$、$cabcabc$、$abcabc$、$bcabc$、$cabc$、$abc$、$bc$、$c$ $\}$ 称为 $abcdabc$ 的 **后缀集合**；
 
 **2、** 交集
+
 显然上述示例中，前缀集合和后缀集合的交集为 $\{$ $abcabc$、$abc$ $\}$ 。理解起来肯定是没问题的，但我们不妨往深再考虑一点，其实际意义是什么呢？
 
 取两个 $abcabcabc$ 并以下列方式进行放置：
@@ -94,9 +95,9 @@ a b c a b c a b c
 
 第8个位置上的元素：
 - $s_8 = abcabcab$;
-- $s_8$ 的前缀集合和后缀集合的交集为 $\{ ab \}$；
-- $s_8$ 的部分匹配为 $ab$；
-- $next[8] = 2$ ；
+- $s_8$ 的前缀集合和后缀集合的交集为 $\{ ab, abcab\}$；
+- $s_8$ 的部分匹配为 $abcab$；
+- $next[8] = 5$ ；
 
 最终所得到的字符串的PMT（$next$ 数组）如下所示：
 |   | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 |
@@ -290,7 +291,8 @@ vector<int> get_next(const string& t) {
 int kmp(const string& s, cosnt string& t) {
     const vector<int> next = get_next(t);
     int i = 0, j = 0;
-    while(i < s.size() && j < t.size())
+    //必须要强制转换
+    while(i < s.size() && j < (int)t.size())
     {
         if(j == -1 || s[i] == t[j])
         {
