@@ -29,11 +29,6 @@ int printf(const char *format, ...);
 
 
 ### 其它
-1、终端命令： **标准输出重定向**
-```bash
-./a.out > result.txt
-```
-
 2、%[]：
 ```c
 //正常scanf遇到空格即停止，以下scanf只有遇到换行才停止
@@ -66,6 +61,7 @@ stderr stdout区别
 重定向：
 - >: 标准输出（stdout）重定向；
 - 2>: 标准错误（stderr）重定向；
+- <： 标准输入（stdio）重定向；
 
 
 ls
@@ -479,3 +475,73 @@ gcc -DDEBUG main2.c
 - memcpy：
 - memset：
 - memcmp：
+
+
+## 2020-10-29
+### 结构体
+```c
+struct person {
+	char name[20];
+	int age;
+	char gender;
+	float height;
+};
+```
+typedef struct person {
+	char name[20];
+	int age;
+	char gender;
+	float height;
+} Person;
+声明变量时：
+```c
+struct person yu1;
+Person yu2;
+```
+
+结构体内存对齐：
+```c
+//8字节
+struct node1 {
+    char a;
+	char b;
+	int c;
+};
+
+//12字节
+struct node2 {
+	char a;
+	int c;
+	char b;
+};
+```
+
+强制改变结构体内存对齐：
+- #pragma pack(n)
+- #pragma pack(push)
+- #pragma pack(pop)
+- #pragma pack()
+
+匿名结构体：
+```c
+vim
+```
+
+### 公用体
+
+IP表示形式：点分十进制
+
+大小端机器区分：
+- 就是看低地址存的是数值的低位还是高位：存的低位，则为小端机器；存的高位，则为大端机器；
+- 存储是以字节为单位的，无论大端还是小端，字节内都是高位在低地址；
+
+```c
+//数值：
+00000000 00000000 00000000 00000001
+
+//大端机器
+00000000 00000000 00000000 00000001
+
+//小端机器
+00000001 00000000 00000000 00000000
+```
