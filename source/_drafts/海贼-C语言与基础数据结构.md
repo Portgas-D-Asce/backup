@@ -545,3 +545,47 @@ IP表示形式：点分十进制
 //小端机器
 00000001 00000000 00000000 00000000
 ```
+
+## 2020-10-31
+
+### 数组变量和指针
+
+### 函数指针
+```c
+//函数指针
+int (*add)(int, int);
+
+//函数指针类型（提升）
+typedef int (*add)(int, int)
+```
+
+typedef 
+
+### main函数参数
+```c
+int main();
+
+int main(int argc, char *argv[]);
+
+int main(int argc, char *argv[], char **env);
+```
+
+### ld命令
+
+ld + main.o
+
+声明和定义需要分离
+
+三个目录
+- include
+- src
+- lib
+
+静态/动态链接库
+
+
+makefile
+
+### 工程实践
+
+git clone https://hub.fastgit.org/google/googletest 
