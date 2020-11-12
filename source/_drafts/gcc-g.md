@@ -206,6 +206,7 @@ ar -q libmath.a add.o time.o minus.o
 
 -L: 附加库（静态库）目录
 ```
+g++ -I./include main.cpp -L./lib -lgtest -lpthread
 ```
 
 -Wl,-rpath=: 附加库（动态库）目录
@@ -213,7 +214,9 @@ ar -q libmath.a add.o time.o minus.o
 ```
 
 -l*： 附加库（默认链接动态链接库）
+- 附加库需要放在源文件后面；
 ```
+g++ -I./include main.cpp -L./lib -lgtest -lpthread
 ```
 
 -static: 强制链接静态库

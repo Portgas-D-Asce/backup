@@ -1,9 +1,11 @@
 ---
 title: 并查集（Union-Find Set）
+author: Portgas·D·Asce
 categories:
   - [Data Structure & Algorithm]
 tags:
   - 树
+date: 2020-10-29 17:03:47
 ---
 
 <!--more-->
@@ -16,8 +18,8 @@ tags:
 - 用来处理 **不相交集合** 问题。
 
 定义在其上的两个操作：
-- Find：查找节点所属于的集合；
-- Union：合并两个不相交的集合；
+- **Find：** 查找节点所属于的集合；
+- **Union：** 合并两个不相交的集合；
 
 两点优化方法：
 - **路径压缩：** 让查找路径上的所有节点均指向根节点，提高下一次查找效率；
@@ -57,7 +59,7 @@ public:
             swap(root1, root2);
         }
         parent[root1] = root2;
-        rank[root2] = max(rank[root2], rank[root1] + max);
+        rank[root2] = max(rank[root2], rank[root1] + 1);
     }
 };
 ```

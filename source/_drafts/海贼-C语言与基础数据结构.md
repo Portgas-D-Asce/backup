@@ -561,14 +561,86 @@ typedef int (*add)(int, int)
 
 typedef 
 
-### main函数参数
+
+### 利用 NULL 实现结构体中变量地址偏移量计算
+
+```c
+#define offset(T, a)  ((long)(&((T *)(NULL))->a))
+
+typedef struct Data {
+	int a;
+	double b;
+	char c;
+};
+
+int main() {
+	printf("%ld\n", offset(struct Data, a));
+	printf("%ld\n", offset(struct Data, b));
+	printf("%ld\n", offset(struct Data, c));
+
+	return 0;
+}
+```
+### define 和 typedef 区别
+- define: 无论是整个宏还是宏变量，都只是简单字符串的替换；
+- typedef: 为类型取别名；
+
+```c
+#define ppchar char *
+typedef char * pchar;
+
+int main() {
+	ppchar p1, p2;
+	pchar p3, p4;
+	printf("p1 = %lu, p2 = %lu\n", sizeof(p1), sizeof(p2)); //8, 1
+	printf("p3 = %lu, p4 = %lu\n", sizeof(p3), sizeof(p4)); //8, 8
+
+	return 0;
+}
+```
+### main 函数得三种形式
+三种形式：
 ```c
 int main();
 
 int main(int argc, char *argv[]);
 
 int main(int argc, char *argv[], char **env);
+
 ```
+- argc: 表明了 argv 中参数的个数；
+- argv: 程序被调用时，所使用的参数，程序名为第一个参数；
+- env: 程序的环境变量，但是没有标明它中到底包含多少个字符串，类似于字符串，其最后一个字符指针为 NULL;
+
+输出调用参数及环境变量：
+```c
+void output(int argc, char *argv[], char **env) {
+	printf("argc = %d\n", argc);
+	for(int i = 0; i < argc; ++i) {
+		printf("argv[%d] = %s\n", i, argv[i]);
+	}
+	for(int i = 0; env[i]; ++i) {
+		printf("env[%d] = %s\n", i, env[i]);
+	}
+	//指纹验证
+	for(int i = 0; env[i]; ++i) {
+		if(!strncmp(env[i], "USER=", 5)) {
+			if(!strncmp(env[i] + 5, "***")) {
+				printf("welcome ***\n");
+			} else {
+				printf("gun\n");
+			}
+		}
+	}
+}
+```
+根据环境变量中信息实现指纹验证，只允许符合规则的用户使用程序
+
+### 函数的声明和定义
+- 函数允许声明多次，但只能定义一次；
+- 函数未声明：发生在编译/汇编阶段；
+- 函数未定义：发生在链接阶段；
+
 
 ### ld命令
 
@@ -587,5 +659,18 @@ ld + main.o
 makefile
 
 ### 工程实践
+- git clone https://hub.fastgit.org/google/googletest：下载速度更快；
+- __attribute__((constructor))：使得函数在main函数之前执行；
 
-git clone https://hub.fastgit.org/google/googletest 
+
+## 2020-11-3
+
+
+## 2020-11-5
+
+## 2020-11-7
+### 泛型宏
+
+## 2020-11-10
+
+
