@@ -144,7 +144,7 @@ printf "\033[32m亲爱的 ${user}, 我们最近约会了 ${cnt} 次 \U1f493 \U1f
 ```
 
 
-### 3 Ascii Images
+## 3 Ascii Images
 搜集到的一些 Ascii Images
 ```
                    _ooOoo_
