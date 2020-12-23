@@ -32,6 +32,8 @@ sudo hostnamectl set-hostname 主机名
 - 选择安全组；
 - 添加访问规则；
 
+{% asset_img 1.png %}
+
 练手：
 - 如何启用 80 端口；
 - 尝试修改下 ssh 服务端口（默认为 22）；
