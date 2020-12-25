@@ -15,31 +15,30 @@ date: 2019-12-17 20:07:57
 ## 1 评论系统有哪些
 早期的多说、网易云跟帖，都是非常好的评论系统，但服务已关闭，目前无法使用；
 目前新的评论系统也有很多
-### 1.1 github系列
-#### 1.1.1 gitment
+### 1.1 gitment
 [gitment](https://github.com/imsun/gitment)
 基于Github Issues，支持Markdown（**不再更新**）。
 {% asset_img 1.png %}
 
-#### 1.1.2 gitalk（推荐）
+### 1.2 gitalk（推荐）
 [gitalk](https://github.com/gitalk/gitalk)
 基于Github Issues，支持Markdown
 {% asset_img 2.png %}
 
-### 1.2 valine
+### 1.3 valine
 [valine](https://valine.js.org/)
 基于LeanCloud，安全、快速、无后端实现、支持Emoji、支持Markdown
 {% asset_img 3.png %}
 
-### 1.3 livere
+### 1.4 livere
 [livere](https://livere.com/)
 韩国，功能全面，可以先体验下
 {% asset_img 4.png %}
 
-### 1.4 Hypercomments
+### 1.5 Hypercomments
 [Hypercomments](https://www.hypercomments.com/)
 俄罗斯，需要翻墙
-### 1.5 其它
+### 1.6 其它
 友言、畅言等
 
 ## 2 选择
