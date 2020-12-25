@@ -1,5 +1,5 @@
 ---
-title: hexo添加评论系统
+title: Hexo添加评论系统
 author: Portgas·D·Asce
 categories:
   - [Hexo]
@@ -8,7 +8,7 @@ tags:
 date: 2019-12-17 20:07:57
 ---
 
-评论系统算是博文中一个重要模块，是必须必要添加的。
+评论系统添加完毕，欢迎各位秀儿踊跃发言 &#x1f601; &#x1f601;
 
 <!-- more -->
 
