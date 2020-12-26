@@ -131,26 +131,23 @@ int search(Node *root, int val) {
     if(val < root->val) {
         return search(root->left,val);
     }
-        
     return search(root->right, val);
-}
-
-void print(Node *root) {
-    int left = root->left ? root->left->val : 0;
-    int right = root->right ? root->right->val : 0;
-    printf("(%d, %d, %d)\n", root->val, left, right);
 }
 
 void output(Node *root) {
     if(root == NULL) return;
     output(root->left);
-    print(root);
+
+    int left = root->left ? root->left->val : 0;
+    int right = root->right ? root->right->val : 0;
+    printf("(%d, %d, %d)\n", root->val, left, right);
+
     output(root->right);
-    printf("(%d %d %d)");
 }
 
 int main() {
     int op, val;
+    Node *root = NULL;
     while(scanf("%d%d", &op, &val) != EOF) {
         switch(op) {
             case 0: printf("search %d, result : %d\n", val, search(root, val)); break;
@@ -159,13 +156,14 @@ int main() {
         }
         if(op) {
             output(root);
+            printf("----------\n");
         }
     }
+    return 0;
 }
 ```
 
-## 扩展内容
-### 二叉排序树得删除打吗优化；
-### 如何解决排名相关检索需求；
-### 解决 Top-K 问题；
-### 二叉排序树和快速排序关系
+## 6 扩展内容
+### 6.1 如何解决排名相关检索需求；
+### 6.2 解决 Top-K 问题；
+### 6.3 二叉排序树和快速排序关系
