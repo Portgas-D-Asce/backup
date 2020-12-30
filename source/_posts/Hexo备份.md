@@ -1,5 +1,5 @@
 ---
-title: hexo备份
+title: Hexo备份
 author: Portgas·D·Asce
 categories:
   - [Hexo]
@@ -8,7 +8,7 @@ tags:
 date: 2019-12-05 14:22:10
 ---
 
-天有不测风云，人有旦夕祸福。
+你永远都不会知道明天跟意外哪个先来，唯一能做的就是早做打算 &#x1f602; &#x1f602;
 <!-- more -->
 
 ## 1 要备份的内容有哪些

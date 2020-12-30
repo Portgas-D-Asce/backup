@@ -1,5 +1,5 @@
 ---
-title: hexo绑定域名
+title: Hexo绑定域名
 author: Portgas·D·Asce
 categories:
   - [Hexo]
