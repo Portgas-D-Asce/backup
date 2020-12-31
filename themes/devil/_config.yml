@@ -19,7 +19,7 @@ interests:
   Machine Learning:
     introduce: 0
   About Me:
-    introduce: 111
+    introduce: 非技术，关于个人的一些东西。
 
 # 分类介绍
 # categories
@@ -110,7 +110,7 @@ categories:
     interest: About Me
     url:
   Book:
-    introduce: 那些年，那些追过的漫
+    introduce: 
     interest: About Me
     url:
   Fitness:
