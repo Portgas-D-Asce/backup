@@ -62,6 +62,7 @@ Bubble.prototype.updateDom = function(){
   sty.height = this.r * 2 + 'px';
   sty.lineHeight = this.r * 2 + 'px';
   sty.fontSize = this.fontSize + 'px';
+  
 
   var px = parseInt(this.x - this.r);
   var py = parseInt(this.y - this.r);
