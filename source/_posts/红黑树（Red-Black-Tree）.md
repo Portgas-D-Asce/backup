@@ -273,12 +273,59 @@ Node *predecessor(Node *root) {
 
 Node *maintain_erase(Node *root) {
     if(root->left->color != 2 && root->right->color != 2) return root;
-    if(root->left->color == 2) {
-
-    } else {
-        
+    //如果双重黑的兄弟节点为红色（情况三）
+    if(root->left->color == 0) {
+        root->left->color = 1;
+        root->color = 0;
+        root = right_rotate(root);
+        //万幸 root->right 为红色，双重黑问题一定不会上浮
+        root->right = maintain_erase(root->right);
+        return root;
+    }
+    if(root->right->color == 0) {
+        root->right->color = 1;
+        root->color = 0;
+        root = left_rotate(root);
+        //万幸 root->right 为红色，双重黑问题一定不会上浮
+        root->left = maintain_erase(root->left);
+        return root;
     }
 
+    //双重黑的兄弟节点为黑色（情况一）
+    if((root->left->color == 1 && root->left->left->color != 0 && root->left->right->color != 0) ||
+       (root->right->color == 1 && root->right->left->color != 0 && root->right->right->color != 0)) {
+        root->color += 1;
+        root->left->color -= 1;
+        root->right->color -= 1;
+        return root;
+    }
+
+    //（情况二）
+    if(root->left->color == 2) {
+        //RL 型
+        if(root->right->right->color != 0) {
+            root->right->color = 0;
+            root->right = right_rotate(root->right);
+            root->right->color = 1;
+        }
+        //RR 型
+        root->left->color -= 1;
+        root = left_rotate(root);
+        root->color = root->left->color;
+    } else {
+        //LR 型
+        if(root->left->left->color != 0) {
+            root->left->color = 0;
+            root->left = left_rotate(root->left);
+            root->left->color = 1;
+        }
+        //LL型
+        root->right->color -= 1;
+        root = right_rotate(root);
+        root->color = root->right->color;
+    }
+    root->left->color = root->right->color = 1;
+    return root;
 }
 
 Node *erase_recursion(Node *root, int val) {
@@ -336,6 +383,9 @@ int main() {
             case 1:
                 root = insert(root, val);
                 break; 
+            case 2:
+                root = erase(root, val);
+                break;
         }
         output(root);
         printf("---------\n");
