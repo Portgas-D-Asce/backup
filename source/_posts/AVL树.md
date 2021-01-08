@@ -7,12 +7,10 @@ tags:
   - 基础数据结构
   - 二叉树
   - 二叉搜索树
-  - 海贼班
 date: 2020-12-22 16:42:22
 ---
 
 <!--more-->
-光哥yyds！！！
 ## 1 AVL树认知
 AVL树是一种平衡二叉搜索树，它满足性质： 
 - 对于任意节点，其子树的左右子树的高度差，不会超过 1；
@@ -238,8 +236,8 @@ int search(Node *root, int val) {
 void output(Node *root) {
     if(root == NIL) return;
 
-    int left = root->left ? root->left->val : 0;
-    int right = root->right ? root->right->val : 0;
+    int left = root->left != NIL ? root->left->val : 0;
+    int right = root->right != NIL ? root->right->val : 0;
     printf("(%d[%d], %d, %d)\n", root->val, root->h, left, right);
 
     output(root->left);
@@ -269,5 +267,64 @@ int main() {
     return 0;
 }
 ```
-<!--### 4.2 C++版-->
+<!--### 4.2 C++版
+```cpp
+class Node {
+private:
+    int val;
+    int h;
+    Node *left;
+    Node *right;
+public:
+    Node(int val = 0, int h = 0) 
+        : val(val), h(h), left(nullptr), right(nullptr) {}
+    ~Node() {
+        if(this == nullptr) return;
+        delete left;
+        delete right;
+    }
+    Node *get_left() {
+        return left;
+    }
+    Node *get_right() {
+        return right;
+    }
+    int get_val() {
+        return val;
+    }
+    int get_h() {
+        return h;
+    }
+};
+
+class AVL {
+private:
+    //Node *NIL；
+    Node *root；
+    Node *insert_recursion(Node *node, int val) {
+        if(root == nullptr) return new Node(val);
+        if(root->get_val() == val) return root;
+        if(val < root->get_val()) {
+
+        }
+    }
+public:
+    AVL() {
+        //NIL = new Node(0, -1);
+        //NIL->val = 0;
+        //NIL->h = -1;
+        //NIL->left = NIL->right = NIL;
+        root = nullptr;
+    }
+    ~AVL() {
+        //delete NIL;
+        delete root;
+    }
+    
+    Node *insert(int val) {
+        insert(root, val);
+    }
+};
+```
+-->
 
