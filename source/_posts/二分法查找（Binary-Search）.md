@@ -5,7 +5,6 @@ categories:
   - [Data Structure & Algorithm]
 tags:
   - 基础算法
-  - 海贼班
 date: 2020-010-28 11:43:13
 ---
 
