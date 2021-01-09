@@ -2,7 +2,7 @@
 title: Vim复制内容到系统剪切板
 author: Portgas·D·Asce
 categories:
-  - [Vim]
+  - [Tools & Skills]
 tags:
   - Vim
 date: 2020-11-19 22:38:49

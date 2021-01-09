@@ -27,7 +27,7 @@ void func(const vector<int> &nums) {
 ```
 对于 $prefix$ 数组，我们不妨称呼它为 $nums$ 的 $prefix\ sum\ array$ ，它的本质是：
 - 声明了一个与长度与 $nums$ 相同的数组；
-- 其中每个元素，都等于 $nums$ 中它位置前面所有元素的 **和**（即，$prefix[i] = sum(nums[0], nums[1], ..., nums[i])$）；
+- 其中每个元素，都等于 $nums$ 中它位置前面所有元素的 和（即，$prefix[i] = sum(nums[0], nums[1], ..., nums[i])$）；
 
 例二：
 ```cpp
@@ -42,13 +42,15 @@ void func(const vector<int> &nums) {
 ```
 对于 $prefix$ 数组，我们不妨称呼它为 $nums$ 的 $prefix\ max\ array$ ，它的本质是：
 - 声明了一个长度与 $nums$ 相同的数组；
-- 其中每个元素，都等于 $nums$ 中它位置前面所有元素的 **最大值**（即，$prefix[i]\ =\ max(nums[0],\ nums[1],\ ...,\ nums[i])$）；
+- 其中每个元素，都等于 $nums$ 中它位置前面所有元素的 最大值（即，$prefix[i]\ =\ max(nums[0],\ nums[1],\ ...,\ nums[i])$）；
 
 对它们进行抽象，可以理解成：它们中的元素都是 原数组中位置在其前面的所有元素的某个函数！（即 $prefix[i] = f(nums[0], nums[1], ... nums[i])$）
 - 对于 $prefix\ sum\ array$ 而言，$f$ 函数的功能是 求和；
 - 对于 $prefix\ max\ array$ 而言，$f$ 函数的功能是 求最大值；
 
-经过上面的抽象，我们也就不难理解 $Prefix\ Array$ 是什么了,它就是 $prefix\ sum\ array$，$prefix\ max\ array$，$prefix\ min\ array$ 这些东西的总称了。$Prefix\ Array$家族还有很多很多其它成员（之所以介绍这么多的家族成员，是为了说明 $Prefix\ Array$ 应用的广泛性，而并非是说，这些成员有多重要，它们一点都不重要，名字都是乱起的。）:
+$Prefix\ Array$ 就是 $prefix\ sum\ array$，$prefix\ max\ array$，$prefix\ min\ array$ 这些东西的总称。
+
+$Prefix\ Array$ 家族还有很多很多其它成员（之所以介绍这么多的家族成员，是为了说明 $Prefix\ Array$ 应用的广泛性，而并非是说，这些成员有多重要，它们一点都不重要，名字都是乱起的）:
 - $Prefix\ Count\ Array$: $prefix[i]\ =\ count(nums[0],\ nums[1],\ ...,\ nums[i],\ tar)$, 即，原数组位置在其前面的元素中 $tar$ 出现多少次。
 - $Prefix\ First\ Greater/Less\ Array$: $prefix[i]\ =$ ($nums[i - 1],\ nums[i - 2],\ ...,\ nums[0]$ 中第一个比 $nums[i]$ 大/小 的元素)，需要借助 单调栈 来实现；
 - $Prefix\ Max-Of-K-Element\ Array$: $prefix[i]\ =\ max(nums[i],\ nums[i - 1],\ ...,\ nums[i - k + 1])$，即，原数组中位置在其前面的 $K$ 个元素的最大值，与 $prefix\ max\ array$ 的不同在于，它把前面元素的个数限制为了 $K$ 个，而不是前面所有元素；需要借助 最大队列 来实现；
