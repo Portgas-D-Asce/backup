@@ -52,8 +52,9 @@ $Prefix\ Array$ 就是 $prefix\ sum\ array$，$prefix\ max\ array$，$prefix\ mi
 
 $Prefix\ Array$ 家族还有很多很多其它成员（之所以介绍这么多的家族成员，是为了说明 $Prefix\ Array$ 应用的广泛性，而并非是说，这些成员有多重要，它们一点都不重要，名字都是乱起的）:
 - $Prefix\ Count\ Array$: $prefix[i]\ =\ count(nums[0],\ nums[1],\ ...,\ nums[i],\ tar)$, 即，原数组位置在其前面的元素中 $tar$ 出现多少次。
+- $Prefix\ Count\ less Array$: $prefix[i]\ = (nums[0] < nums[i]) + (nums[1] < nums[i]) + ... + (nums[i - 1] < nums[i])$；可以用 线段树 或 树状数组来实现。
 - $Prefix\ First\ Greater/Less\ Array$: $prefix[i]\ =$ ($nums[i - 1],\ nums[i - 2],\ ...,\ nums[0]$ 中第一个比 $nums[i]$ 大/小 的元素)，需要借助 单调栈 来实现；
-- $Prefix\ Max-Of-K-Element\ Array$: $prefix[i]\ =\ max(nums[i],\ nums[i - 1],\ ...,\ nums[i - k + 1])$，即，原数组中位置在其前面的 $K$ 个元素的最大值，与 $prefix\ max\ array$ 的不同在于，它把前面元素的个数限制为了 $K$ 个，而不是前面所有元素；需要借助 最大队列 来实现；
+- $Prefix\ Max-Of-K-Element\ Array$: $prefix[i]\ =\ max(nums[i],\ nums[i - 1],\ ...,\ nums[i - k + 1])$，即，原数组中位置在其前面的 $K$ 个元素的最大值，与 $prefix\ max\ array$ 的不同在于，它把前面元素的个数限制为了 $K$ 个，而不是前面所有元素；需要借助 单调队列来实现 来实现；
 
 **重要的不是 $Prefix\ Array$ 家族有哪些成员，而是 $Prefix\ Array$ 这种考虑问题的方式。**
 
