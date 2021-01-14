@@ -87,7 +87,7 @@ a b c a b c x ...             （主串）
 
 实际上，我们需要知道的是 模式串 $abcabcabcy$ 的所有前缀（伪前缀）： 空串、$a$、$ab$、$abc$、$abca$、$abcab$、$abcabc$、$abcabca$、$abcabcab$、$abcabcabc$、$abcabcabcy$ 的部分匹配，来处理发生在在不同位置的失配情况。
 
-### 3.2 如何使用部分匹配表进行优化
+### 3.2 如何使用部分匹配表进行优化？
 
 部分匹配表是可以用来优化 Brute Force 的匹配过程的，但具体该如何实现呢？
 
@@ -125,13 +125,13 @@ a b c a b c a b c x ...       （主串）
 
 
 
-### 3.3 如何计算 $next$ 数组？
+### 3.3 如何计算 next 数组？
 
 还有一个重要的问题：$next$ 数组怎么来？
 
 以 $s = abcabcabcy$ 为例。
 
-根据 $next[0] = -1$ 和 $next[1] = 0$ 是固定的。
+$next[0] = -1$ 和 $next[1] = 0$ 是固定的。
 
 情况一：已知 $next[6] = 3$，如何求 $next[7]$：
 ```cpp
