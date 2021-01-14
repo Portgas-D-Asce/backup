@@ -5,7 +5,7 @@ categories:
   - [Data Structure & Algorithm]
 tags:
   - 字符串
-  - 字符串匹配
+  - 基础算法
 date: 2020-08-27 17:58:41
 ---
 
