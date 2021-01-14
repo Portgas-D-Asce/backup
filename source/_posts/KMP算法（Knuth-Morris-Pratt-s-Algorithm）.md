@@ -50,8 +50,6 @@ a b c a b c a b c x ...       （主串）
 ```
 上面的过程实际上是：**寻找 $abcabcabc$ 的部分匹配 $abcabc$ 的过程，这个过程只跟 $abcabcabc$ 自身有关**
 
-<!--（部分匹配的含义是前缀集合和后缀集合的交集）-->
-
 如果提前知道了 $abcabcabc$ 的部分匹配是 $abcabc$，那么我们完全可以一步到位：
 ```cpp
 //发现失配
@@ -66,7 +64,7 @@ a b c a b c a b c x ...       （主串）
       a b c a b c a b c y     （模式串）
                   |
 ```
-可见，部分匹配可以用来优化 Brute Force 的匹配过程。
+部分匹配可以用来优化 Brute Force 的匹配过程。
 
 **2、部分匹配表**
 稍微改动下主串后，在如下位置发生失配：
@@ -204,8 +202,9 @@ vector<int> get_next(const string& t) {
 
 int kmp(const string& s, cosnt string& t) {
     const vector<int> next = get_next(t);
-    int i = 0, j = 0;
-    while(i < s.size() && j < t.size()) {
+    int i = 0, j = 0, m = s.size(), n = t.size();
+    //j 可能等于 -1，所以 j < t.size() 会导致 bug
+    while(i < m && j < n) {
         if(j == -1 || s[i] == t[j]) {
             ++i; ++j;
         }
@@ -218,11 +217,11 @@ int kmp(const string& s, cosnt string& t) {
 
 //如果你想，KMP 也就是 6 行代码的事。
 /*int kmp(const string &s, const string &t) {
-    vector<int> next(t.size() + 1, -1);
-    int i = 0, j = -1;
-    while(i < t.size()) (j == -1 || t[i] == t[j]) ? (next[++i] = ++j) : (j = next[j];);
+    int i = 0, j = -1, m = s.size(), n = t.size();
+    vector<int> next(n + 1, -1);
+    while(i < t.size()) j == -1 || t[i] == t[j] ? next[++i] = ++j : j = next[j];
     i = 0, j = 0;
-    while(i < s.size() && j < t.size()) (j == -1 || s[i] == t[j]) ？ (++i, ++j) : (j = next[j]);
+    while(i < m && j < n) j == -1 || s[i] == t[j] ? ++i, ++j : j = next[j];
     return j == t.size() ? i - j : -1;
 }*/
 ```
@@ -234,7 +233,7 @@ int kmp(const string& s, cosnt string& t) {
 
 ### 3.5 时间复杂度
 
-## 4 扩展
+## 4 扩展（可跳过）
 ### 4.1 深入理解部分匹配
 **1、部分匹配与前/后缀**
 
