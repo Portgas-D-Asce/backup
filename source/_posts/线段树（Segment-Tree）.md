@@ -5,7 +5,8 @@ categories:
   - [Data Structure & Algorithm]
 tags:
   - 基础数据结构
-  - 树
+  - 数组
+  - 海贼班
 date: 2020-12-26 18:50:35
 ---
 
