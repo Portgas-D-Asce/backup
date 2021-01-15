@@ -4,7 +4,7 @@ author: Portgas·D·Asce
 categories:
   - [Data Structure & Algorithm]
 tags:
-  - 刷题套路
+  - 基础算法
   - 数组
 date: 2021-01-01 01:19:36
 ---
