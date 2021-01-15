@@ -10,7 +10,7 @@ links:
 
 ## Research Interests
 interests:
-  Computer Science:
+  Programming:
     introduce: 123
   Math:
     introduce: 456
@@ -27,27 +27,27 @@ categories:
 #################################################################
   Ubuntu: 
     introduce: Ubuntu从入门到放弃。
-    interest: Computer Science
+    interest: Programming
     url: 
   VSCode: 
     introduce: VSCode使用相关问题
-    interest: Computer Science
+    interest: Programming
     url: 
   Hexo: 
     introduce: 从零开始，打造一款干净、整洁的个人博客。
-    interest: Computer Science
+    interest: Programming
     url:
   Git: 
     introduce:
-    interest: Computer Science
+    interest: Programming
     url:
   CMake: 
     introduce:
-    interest: Computer Science
+    interest: Programming
     url:
   Tools & Skills:
     introduce:
-    interest: Computer Science
+    interest: Programming
     url:
 ##
   Python: 
@@ -56,15 +56,15 @@ categories:
     url:
   C/C++: 
     introduce: C/C++专栏。
-    interest: Computer Science
+    interest: Programming
     url:
   gcc/g++: 
     introduce: 
-    interest: Computer Science
+    interest: Programming
     url:
   Data Structure & Algorithm: 
     introduce: 涵盖：数据结构 & 算法 & 刷题套路。
-    interest: Computer Science
+    interest: Programming
     url: 
 ##
   Advanced Mathematics:
