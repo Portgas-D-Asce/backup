@@ -270,8 +270,8 @@ a b c a b c a b c
 - **部分匹配** 是什么？ **部分匹配表** 又是什么？
 - **$next[i]$** 的含义是什么？ **$next$** 数组怎么用？ **$next$** 数组怎么计算？
 
+## 练习
+- [LeetCode 28. Implement strStr()](https://leetcode.com/problems/implement-strstr/)
+
 ## 参考
 [如何更好地理解和掌握 KMP 算法?](https://www.zhihu.com/question/21923021)
-
-
-
