@@ -1,5 +1,5 @@
 ---
-title: Sunday & BM（Boyer-Moore）算法
+title: Sunday算法
 author: Portgas·D·Asce
 categories:
   - [Data Structure & Algorithm]
@@ -16,8 +16,8 @@ date: 2021-01-16 19:30:19
 ## 1 Sunday 算法
 当 模式串 $t$ （长度为 $n$） 和 主串 $s$ （长度为 $m$）的第 $i$ 位从头开始进行匹配时：
 ```cpp
-      i                                  （主串索引）
-      |                                  （当前索引为 i）
+      i           i + n                  （主串索引）
+      |             |                    （当前索引为 i）
 ... x x x x x ... x x ...                （主串）
       y y y y ... y                      （模式串）
       |                                  （当前索引为 0）
@@ -38,8 +38,9 @@ date: 2021-01-16 19:30:19
 - ...
 - 当主串的 $i + n$ 位终于与模式串的倒数第 $x$ 位相同时，那么模式串才有必要和主串的第 $i + x$ 位从头开始匹配；
 
-**为了能够快速定位到模式串中最后一个与主串第 $i + n$ 位字符相同的字符的位置，需要提前计算出模式串中每种字符最后一次出现的位置（倒数第几位）**。
+为了能够快速定位到模式串中最后一个与主串第 $i + n$ 位字符相同的字符的位置，需要提前计算出模式串中每种字符最后一次出现的位置（倒数第几位）。
 
+这就完了？！完了，下面是代码实现：
 ```cpp
 int sunday(const string &s, const string &t) {
     int m = s.size(), n = t.size();
@@ -60,5 +61,3 @@ int sunday(const string &s, const string &t) {
     return -1;
 }
 ```
-## BM 算法
-
