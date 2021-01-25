@@ -1,9 +1,11 @@
 ---
 title: '最小生成树（Minimum Spanning Tree, MST）'
+author: Portgas·D·Asce
 categories:
-  - []
+  - [Data Structure & Algorithm]
 tags:
-  - null
+  - 图论
+  - 基础算法
 ---
 
 <!--more-->
