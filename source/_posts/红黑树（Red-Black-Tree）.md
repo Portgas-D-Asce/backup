@@ -288,6 +288,7 @@ Node *maintain_erase(Node *root) {
     }
 
     //双重黑的兄弟节点为黑色（情况一）
+    //考虑到NIL，必须要用 ！= 0 而不能用 == 1
     if((root->left->color == 1 && root->left->left->color != 0 && root->left->right->color != 0) ||
        (root->right->color == 1 && root->right->left->color != 0 && root->right->right->color != 0)) {
         root->color += 1;
@@ -297,7 +298,7 @@ Node *maintain_erase(Node *root) {
     }
 
     //（情况二）
-    if(root->left->color == 2) {
+    if(root->right->color == 1) {
         //RL 型
         if(root->right->right->color != 0) {
             root->right->color = 0;
