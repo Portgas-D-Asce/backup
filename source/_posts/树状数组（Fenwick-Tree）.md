@@ -103,7 +103,7 @@ public:
     void add(int idx, int x) {
         while(idx < ft.size()) {
             ft[idx] += x;
-            idx += lowbit(x);
+            idx += lowbit(idx);
         }
     }
     //前缀和查询
