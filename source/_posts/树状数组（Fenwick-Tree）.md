@@ -93,10 +93,10 @@ public:
         }*/
 
         //这种构建方式的时间复杂度为 O(n)
-        for(int i = 0; i < nums.size(); ++i) {
-            ft[i + 1] += nums[i];
+        for(int i = 1; i <= nums.size(); ++i) {
+            ft[i] += nums[i - 1];
             int idx = i + lowbit(i);
-            if(idx <= nums.size()) ft[idx] += ft[idx];
+            if(idx <= nums.size()) ft[idx] += ft[i];
         }
     }
     //第 idx 个元素 + x，nums[idx] + x when 1-indexed or nums[idx - 1] + x when 0-indexed

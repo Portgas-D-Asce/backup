@@ -47,6 +47,8 @@ int sunday(const string &s, const string &t) {
     vector<int> offset(256, n + 1);
     for(int i = 0; i < n; ++i) offset[t[i]] = n - i;
 
+    //i < m - n，会漏掉最后一个子串
+    //i <= m - n 会导致 s[i + n] = s[m] 访问到字符串结尾标志
     for(int i = 0; i <= m - n; i += offset[s[i + n]]) {
         bool flag = true;
         for(int j = 0; j < n; ++j) {
