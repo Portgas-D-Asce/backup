@@ -66,7 +66,7 @@ g++ -E -o main.i main.cpp
        
 # 37 "/usr/include/c++/9/iostream" 3
 
-    //上面是开头，下面是末尾，整个文件快3w行
+//上面是开头，下面是末尾，整个文件快3w行
 
 # 3 "main.cpp"
 int main() {
@@ -98,7 +98,7 @@ g++ -S main.i
 .type	_ZStL19piecewise_construct, @object
 .size	_ZStL19piecewise_construct, 1
 
-    //省略中间部分，整个文件共100+行
+//省略中间部分，整个文件共100+行
 
 0:
 	.string	 "GNU"
