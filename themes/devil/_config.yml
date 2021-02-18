@@ -16,8 +16,6 @@ interests:
     introduce: 456
   Computer Vision:
     introduce: 789
-  Machine Learning:
-    introduce: 0
   About Me:
     introduce: 非技术，关于个人的一些东西。
 
@@ -28,95 +26,73 @@ categories:
   Ubuntu: 
     introduce: Ubuntu从入门到放弃。
     interest: Programming
-    url: 
   VSCode: 
     introduce: VSCode使用相关问题
     interest: Programming
-    url: 
   Hexo: 
     introduce: 从零开始，打造一款干净、整洁的个人博客。
     interest: Programming
-    url:
   Git: 
     introduce:
     interest: Programming
-    url:
   CMake: 
     introduce:
     interest: Programming
-    url:
   Tools & Skills:
     introduce:
     interest: Programming
-    url:
 ##
   Python: 
     introduce: 
     interest:
-    url:
   C/C++: 
     introduce: C/C++专栏。
     interest: Programming
-    url:
   gcc/g++: 
     introduce: 
     interest: Programming
-    url:
   Data Structure & Algorithm: 
     introduce: 涵盖：数据结构 & 算法 & 刷题套路。
     interest: Programming
-    url: 
 ##
   Advanced Mathematics:
     introduce: 高数
     interest: Math
-    url: 
   Linear Algebra:
     introduce: 线性代数
     interest: Math
-    url: 
   Probability Theory:
     introduce: 概率论
     interest: Math
-    url: 
   Numerical Analysis:
     introduce: 数值分析
     interest: Math
-    url: 
   Convex Optimization:
     introduce: 凸优化
     interest: Math
-    url: 
 ##
   Structure from Motion:
     introduce: 
     interest: Computer Vision
-    url: 
   Image Processing:
     introduce: 使用 libpng 实现各种图像处理操作。
     interest: Computer Vision
-    url: 
 ##
   Profile:
     introduce: 个人简介
     interest: About Me
-    url:
   Comic: 
     introduce: 那些年，那些追过的漫
     interest: About Me
-    url:
   Book:
     introduce: 
     interest: About Me
-    url:
   Fitness:
     introduce: 健身最难的是什么？坚持！！！
     interest: About Me
-    url:
   Store:
     introduce: 我的杂货铺
     interest: About Me
-    url:
 
 #年度归档
 archives:

@@ -1,32 +1,4 @@
-<% if(is_page()) { %>
-    <div id="interests">
-        <% for(var name in theme.categories) {
-            var category = theme.categories[name];
-            if(category.interest == page.title) {
-                
-                var url = config.category_dir;
-                
-                if(category.url) 
-                  url += category.url + '/';
-
-                var temp = name.replace(/\+/g, '');
-                temp = temp.replace(/[^a-zA-Z0-9]/g, '-');
-                temp = temp.replace(/-+/g, '-');
-                url += '/' + temp; %>
-    
-                <div class="abstract">
-                    <a class="title" href="<%- url_for(url) %>"><%- name %></a>
-                    <div class="digest">
-                        <%- category.introduce || '啊，忘了写简介' %>
-                    </div>
-                    <div class="statistic">
-                         创建 (2020-10-01) | 文章 (1)
-                    </div>
-                </div>
-            <% } %>
-        <% } %>
-    </div>
-<% } else if(is_post()) { %>
+<% if(is_post()) { %>
     <div id="article">
         <div class="content">
             <%- partial('article/copyright.ejs') %>
@@ -40,7 +12,7 @@
         <%- partial('article/preandnext') %>
         <%- partial('article/comments') %>
     </div>
-<% } else { %>
+<% } else if(is_category()){ %>
     <div id="articles">
         <% page.posts.data.sort(function(a, b) {
             if(a.top && b.top) { // 两篇文章top都有定义

@@ -10,15 +10,31 @@ layout: false
             <h1><%= theme.nickname%></h1>
             <h2><%= theme.motto%></h2>
         </div>
-      
-        <% for(interest in theme.interests) { %>
-            <a class="pic bubble" href="<%- url_for(interest.replace(/ /g, '-')) %>">
-                <%- interest %>
-            </a>
-        <% } %>
+
+        <ul class="nav">
+            <% for(interest in theme.interests) { %>
+                <li class="nav-item">
+                    <a style="color:white;"><%- interest %></a>
+                    <dl>
+                        <% for(var name in theme.categories) {
+                            var category = theme.categories[name];
+                            if(category.interest == interest) {
+                                
+                                var url = config.category_dir;
+                
+                                var temp = name.replace(/\+/g, '');
+                                temp = temp.replace(/[^a-zA-Z0-9]/g, '-');
+                                temp = temp.replace(/-+/g, '-');
+                                url += '/' + temp; %>
+                    
+                                <dd class="nav-item-item">
+                                    <a class="title" href="<%- url_for(url) %>"><%- name %></a>
+                                </dd>
+                            <% } %>
+                        <% } %>
+                    </dl>
+                </li>
+            <% } %>
+        </ul>
     </div> 
-    <script type="text/javascript">
-        var box = new BubbleBox('portal');
-        box.go();
-    </script>
 </html>
