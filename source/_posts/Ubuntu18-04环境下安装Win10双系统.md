@@ -2,10 +2,8 @@
 title: Ubuntu18.04环境下安装Win10双系统
 author: Portgas·D·Asce
 categories:
-  - [Ubuntu]
+  - [Linux]
 tags:
-  - Ubuntun
-  - Win
   - 双系统
 date: 2020-03-10 18:55:16
 ---

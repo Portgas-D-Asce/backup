@@ -5,7 +5,7 @@
   background-size: cover
 
 .container
-  width: 340px
+  width: 800px
   margin: 0 auto
   text-align: center
   position: relative
@@ -20,32 +20,35 @@
   background: url(logo-url) center #000
   background-size: cover
 
-.pic
-  background: url(bubble-url)
-  background-size: cover
-  overflow: hidden
-
-
-
 .nav
   position: absolute
   top: 40px
-  right: 20px
+  left: 20px
   
 .nav-item
-  float: left
   list-style-type:none
-  padding: 10px
-  height: 20px
-  overflow: hidden
+  padding: 20px 0px
+  height: 10px
+  overflow-y: hidden
 
 .nav-item:hover
   height: auto
   overflow: auto
   
+.nav-item-name
+  font-weight: bold
+  font-size: 24px
+  color: white
 
 .nav-item>dl
-  background-color: white
+  background-color: rgba(255, 255, 255, 0.9)
+  border-radius: 2px
 
 .nav-item-item
   margin-left: 0
+  line-height: 36px
+  padding: 3px 15px
+
+.nav-item-item > a
+  color: #000
+  font-size: 20px

@@ -2,9 +2,8 @@
 title: Ubuntu安装NVIDIA显卡驱动
 author: Portgas·D·Asce
 categories:
-  - [Ubuntu]
+  - [Linux]
 tags:
-  - Ubuntu
   - N卡驱动
 date: 2020-06-27 20:51:31
 ---

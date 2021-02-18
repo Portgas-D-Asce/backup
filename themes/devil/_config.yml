@@ -12,7 +12,7 @@ links:
 interests:
   Programming:
     introduce: 123
-  Math:
+  Mathematics:
     introduce: 456
   Computer Vision:
     introduce: 789
@@ -23,14 +23,20 @@ interests:
 # categories
 categories:
 #################################################################
-  Ubuntu: 
-    introduce: Ubuntu从入门到放弃。
+  C/C++: 
+    introduce: C/C++专栏。
     interest: Programming
-  VSCode: 
-    introduce: VSCode使用相关问题
+  Data Structure & Algorithm: 
+    introduce: 涵盖：数据结构 & 算法 & 刷题套路。
+    interest: Programming
+  Linux: 
+    introduce: Linux从入门到放弃。
     interest: Programming
   Hexo: 
     introduce: 从零开始，打造一款干净、整洁的个人博客。
+    interest: Programming
+  VSCode: 
+    introduce: VSCode使用相关问题
     interest: Programming
   Git: 
     introduce:
@@ -41,41 +47,34 @@ categories:
   Tools & Skills:
     introduce:
     interest: Programming
-##
   Python: 
     introduce: 
     interest:
-  C/C++: 
-    introduce: C/C++专栏。
-    interest: Programming
   gcc/g++: 
     introduce: 
-    interest: Programming
-  Data Structure & Algorithm: 
-    introduce: 涵盖：数据结构 & 算法 & 刷题套路。
     interest: Programming
 ##
   Advanced Mathematics:
     introduce: 高数
-    interest: Math
+    interest: Mathematics
   Linear Algebra:
     introduce: 线性代数
-    interest: Math
+    interest: Mathematics
   Probability Theory:
     introduce: 概率论
-    interest: Math
+    interest: Mathematics
   Numerical Analysis:
     introduce: 数值分析
-    interest: Math
+    interest: Mathematics
   Convex Optimization:
     introduce: 凸优化
-    interest: Math
+    interest: Mathematics
 ##
-  Structure from Motion:
-    introduce: 
-    interest: Computer Vision
   Image Processing:
     introduce: 使用 libpng 实现各种图像处理操作。
+    interest: Computer Vision
+  Structure from Motion:
+    introduce: 
     interest: Computer Vision
 ##
   Profile:

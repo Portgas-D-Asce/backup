@@ -2,7 +2,7 @@
 title: 阿里云服务器ECS使用总结
 author: Portgas·D·Asce
 categories:
-  - [Ubuntu]
+  - [Linux]
 tags:
   - 阿里云ECS
 date: 2020-12-12 18:36:59

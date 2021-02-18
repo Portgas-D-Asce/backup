@@ -14,7 +14,7 @@ layout: false
         <ul class="nav">
             <% for(interest in theme.interests) { %>
                 <li class="nav-item">
-                    <a style="color:white;"><%- interest %></a>
+                    <a class="nav-item-name"><%- interest %></a>
                     <dl>
                         <% for(var name in theme.categories) {
                             var category = theme.categories[name];
@@ -28,7 +28,7 @@ layout: false
                                 url += '/' + temp; %>
                     
                                 <dd class="nav-item-item">
-                                    <a class="title" href="<%- url_for(url) %>"><%- name %></a>
+                                    <a href="<%- url_for(url) %>"><%- name %></a>
                                 </dd>
                             <% } %>
                         <% } %>
