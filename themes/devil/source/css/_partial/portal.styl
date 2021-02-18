@@ -5,13 +5,16 @@
   background-size: cover
 
 .container
-  width: 800px
+  width: 1100px
   margin: 0 auto
   text-align: center
   position: relative
   top: 50%
   transform: translateY(-50%)
   color: white
+
+.container > h1
+  font-style: italic
   
 .logo
   width: 11vmin
@@ -20,15 +23,18 @@
   background: url(logo-url) center #000
   background-size: cover
 
+::-webkit-scrollbar
+  display: none
+
 .nav
-  position: absolute
-  top: 40px
-  left: 20px
+  height: 100px
+  margin: 0
+  padding: 20px 0px
   
 .nav-item
-  list-style-type:none
-  padding: 20px 0px
-  height: 10px
+  float: left
+  width: 25%
+  height: 40px
   overflow-y: hidden
 
 .nav-item:hover
@@ -37,17 +43,23 @@
   
 .nav-item-name
   font-weight: bold
-  font-size: 24px
+  font-size: 32px
   color: white
+  font-style: italic
 
 .nav-item>dl
   background-color: rgba(255, 255, 255, 0.9)
   border-radius: 2px
+  max-height: 300px
+  overflow: auto
 
 .nav-item-item
   margin-left: 0
   line-height: 36px
   padding: 3px 15px
+
+.nav-item-item:hover
+  background-color: #ccc
 
 .nav-item-item > a
   color: #000

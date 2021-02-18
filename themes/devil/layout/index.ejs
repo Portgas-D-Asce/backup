@@ -6,35 +6,37 @@ layout: false
     <head><%- partial('_partial/head') %></head>
     <div id="portal">
         <div class="container">
-            <div><img class="logo"></div>
+            <img class="logo">
             <h1><%= theme.nickname%></h1>
-            <h2><%= theme.motto%></h2>
-        </div>
-
-        <ul class="nav">
-            <% for(interest in theme.interests) { %>
-                <li class="nav-item">
-                    <a class="nav-item-name"><%- interest %></a>
-                    <dl>
-                        <% for(var name in theme.categories) {
-                            var category = theme.categories[name];
-                            if(category.interest == interest) {
-                                
-                                var url = config.category_dir;
-                
-                                var temp = name.replace(/\+/g, '');
-                                temp = temp.replace(/[^a-zA-Z0-9]/g, '-');
-                                temp = temp.replace(/-+/g, '-');
-                                url += '/' + temp; %>
+            <!--<h1><%= theme.motto%></h1>-->
+            <ul class="nav">
+                <% for(interest in theme.interests) { %>
+                    <li class="nav-item">
+                        <a class="nav-item-name"><%- interest %></a>
+                        <dl>
+                            <% for(var name in theme.categories) {
+                                var category = theme.categories[name];
+                                if(category.interest == interest) {
+                                    
+                                    var url = config.category_dir;
                     
-                                <dd class="nav-item-item">
-                                    <a href="<%- url_for(url) %>"><%- name %></a>
-                                </dd>
+                                    var temp = name.replace(/\+/g, '');
+                                    temp = temp.replace(/[^a-zA-Z0-9]/g, '-');
+                                    temp = temp.replace(/-+/g, '-');
+                                    url += '/' + temp; %>
+                        
+                                    <dd class="nav-item-item">
+                                        <a href="<%- url_for(url) %>"><%- name %></a>
+                                    </dd>
+                                <% } %>
                             <% } %>
-                        <% } %>
-                    </dl>
-                </li>
-            <% } %>
-        </ul>
+                        </dl>
+                    </li>
+                <% } %>
+            </ul>
+        </div>
+        
+
+        
     </div> 
 </html>
