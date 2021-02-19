@@ -5,8 +5,8 @@ categories:
   - [Data Structure & Algorithm]
 tags:
   - 基础数据结构
-  - 树
   - 平衡二叉搜索树
+  - 海贼班
 date: 2020-12-22 16:43:56
 ---
 
