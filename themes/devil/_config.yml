@@ -146,7 +146,7 @@ meting:
 gitalk:
   enable: true #用来做启用判断可以不用
   owner: Portgas-D-Asce #Github 用户名,
-  repo: Portgas-D-Asce.github.io #储存评论issue的github仓库名
+  repo: backup #储存评论issue的github仓库名
   admin: Portgas-D-Asce #Github 用户名,
   clientID: 44d043e14172988e852d #`Github Application clientID`
   clientSecret: 8e341ed76d50a62e8716180d55d2099782a2aa59 #`Github Application clientSecret`
