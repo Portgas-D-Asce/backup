@@ -150,3 +150,4 @@ gitalk:
   admin: Portgas-D-Asce #Github 用户名,
   clientID: 44d043e14172988e852d #`Github Application clientID`
   clientSecret: 8e341ed76d50a62e8716180d55d2099782a2aa59 #`Github Application clientSecret`
+  proxy: https://netnr-proxy.cloudno.de/https://github.com/login/oauth/access_token #403错误
