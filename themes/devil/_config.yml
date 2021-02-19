@@ -26,17 +26,17 @@ categories:
   C/C++: 
     introduce: C/C++专栏。
     interest: Programming
-  Data Structure & Algorithm: 
-    introduce: 涵盖：数据结构 & 算法 & 刷题套路。
-    interest: Programming
   Linux: 
     introduce: Linux从入门到放弃。
     interest: Programming
-  Hexo: 
-    introduce: 从零开始，打造一款干净、整洁的个人博客。
+  Data Structure & Algorithm: 
+    introduce: 涵盖：数据结构 & 算法 & 刷题套路。
     interest: Programming
-  VSCode: 
-    introduce: VSCode使用相关问题
+  LeetCode: 
+    introduce: LeetCode 刷题笔记。
+    interest: Programming
+  CodeForces: 
+    introduce: CodeForces 刷题笔记。
     interest: Programming
   Git: 
     introduce:
@@ -44,14 +44,14 @@ categories:
   CMake: 
     introduce:
     interest: Programming
-  Tools & Skills:
-    introduce:
-    interest: Programming
-  Python: 
-    introduce: 
-    interest:
   gcc/g++: 
     introduce: 
+    interest: Programming
+  Hexo: 
+    introduce: 从零开始，打造一款干净、整洁的个人博客。
+    interest: Programming
+  Tools & Skills:
+    introduce:
     interest: Programming
 ##
   Advanced Mathematics:
