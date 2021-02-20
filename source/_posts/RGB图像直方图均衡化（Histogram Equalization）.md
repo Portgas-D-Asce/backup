@@ -184,10 +184,9 @@ int main() {
 
     return 0;
 }
-
+```
 效果：
 {% asset_img 3.png %}
-```
 
 ## 4 $HSV$ 均衡化
 ```cpp
