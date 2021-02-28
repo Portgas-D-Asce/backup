@@ -70,7 +70,9 @@ double binary_search(double (*f)(double), double num) {
     return p;
 }
 ```
-本质：求解方程 $f(x) = x * x = num$ 的浮点解。
+本质：求解方程
+$$f(x) = x * x = num$$
+的浮点解。
 
 ## 2 二分法求解方程最优解
 二分最优化问题有两种类型：
