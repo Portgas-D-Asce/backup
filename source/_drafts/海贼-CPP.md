@@ -79,4 +79,7 @@ int main() {
 -fno-elide-constructors
 ```
 
+## 泛型编程
+在类中，使用Complex<T> 与 Complex 是一样的
+
 

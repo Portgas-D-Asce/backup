@@ -9,7 +9,7 @@ date: 2021-02-28 13:21:37
 ---
 
 <!--more-->
-# 
+# 2.27 ~ 2.28
 ## string 类
 ### find
 > 函数原型
@@ -191,3 +191,114 @@ $$\sum_{i = 1}^{n} (p_i \times l_i)$$
 $$\sum_{i = 1}^{n}(c_i \times w_i)$$
 
 **结论：** 两者本质上是一样的。
+
+## 实现复数类
+难点：
+- 除法操作实现；
+- 不同类型之间运算：整数加浮点数， 整数类型赋值为浮点类型
+
+> 拷贝/赋值/移动
+
+> getter/setter
+
+> 运算符重载（加减乘除）
+整形复数，浮点复数，整数，浮点数之间共 16 种情况。
+> 
+```cpp
+#include <iostream>
+using namespace std;
+
+template <typename T>
+class Complex {
+private:
+    T real;
+    T imag;
+public:
+    Complex(T real = 0, T imag = 0)
+        : real(real), imag(imag) {
+    }
+    Complex(const Complex<T> &x)
+        : real(x.real), imag(x.imag){
+    }
+    Complex<T> & operator=(const Complex<T> &x) {
+		real = x.real;
+		imag = x.imag;
+		return *this;
+    }
+    ~Complex() {}
+
+    Complex<T> operator+(const Complex<T> &x) const {
+        Complex<T> temp;
+        temp.real = real + x.real;
+        temp.imag = imag + x.imag;
+        return temp;
+    }
+    Complex<T>& operator+=(const Complex<T> &x) {
+        real += x.real;
+        imag += x.imag;
+        return *this;
+    }
+
+    Complex<T> operator-(const Complex<T> &x) const {
+        Complex<T> temp;
+        temp.real = real - x.real;
+        temp.imag = imag - x.imag;
+        return temp;
+    }
+    Complex<T>& operator-=(const Complex<T> &x) {
+        real -= x.real;
+        imag -= x.imag;
+        return *this;
+    }
+
+    Complex<T> operator*(const Complex<T> &x) const {
+        Complex<T> temp;
+        temp.real = real * x.real - imag * x.imag;
+        temp.imag = real * x.imag + imag * x.real;
+        return temp;
+    }
+    Complex<T>& operator*=(const Complex<T> &x) const {
+        Complex<T> old = *this;
+        real = old.real * x.real - old.imag * x.imag;
+        imag = old.real * x.imag + old.imag * x.real;
+        return *this;
+    }
+
+    //除零不做处理
+    Complex<T> operator/(const Complex<T> &x) const {
+        Complex<T> temp;
+        double squa = x.real * x.real + x.imag * x.imag;
+
+        temp.real = (real * x.real + imag - x.imag) / squa;
+        temp.imag = (imag * x.real - real * x.imag) / squa;
+        return temp;
+    }
+    Complex<T>& operator/=(const Complex<T> &x) const {
+        Complex<T> old = *this;
+        double squa = x.real * x.real + x.imag * x.imag;
+
+        real = (old.real * x.real + old.imag - x.imag) / squa;
+        imag = (old.imag * x.real - old.real * x.imag) / squa;
+        return *this;
+    }
+    /*ostream & operator<<(ostream &out) {
+        out << "(" << real << ", " << imag << ")";
+        return out;
+    }*/
+    void output() {
+        cout << "(" << real << ", " << imag << ")" << endl;
+    }
+};
+
+int main() {
+    Complex<int> c1(1, 2), c2(3, 4);
+    Complex<int> add = c1 + c2;
+    add.output();
+    
+    Complex<double> d1(1.1, 2.2), d2(3.3, 4.4);
+    Complex<double> mul = c1 * d1;
+    mul.output();
+    
+    return 0;
+}
+```
