@@ -192,113 +192,216 @@ $$\sum_{i = 1}^{n}(c_i \times w_i)$$
 
 **结论：** 两者本质上是一样的。
 
-## 实现复数类
-难点：
-- 除法操作实现；
-- 不同类型之间运算：整数加浮点数， 整数类型赋值为浮点类型
+## 支持加减乘除操作的复数类封装
 
-> 拷贝/赋值/移动
-
-> getter/setter
-
-> 运算符重载（加减乘除）
-整形复数，浮点复数，整数，浮点数之间共 16 种情况。
-> 
+### 代码实现
 ```cpp
 #include <iostream>
 using namespace std;
 
-template <typename T>
 class Complex {
 private:
-    T real;
-    T imag;
+	double _real;
+	double _imag;
 public:
-    Complex(T real = 0, T imag = 0)
-        : real(real), imag(imag) {
-    }
-    Complex(const Complex<T> &x)
-        : real(x.real), imag(x.imag){
-    }
-    Complex<T> & operator=(const Complex<T> &x) {
-		real = x.real;
-		imag = x.imag;
+	Complex(double real = 0, double imag = 0) 
+		: _real(real), _imag(imag) {}
+	Complex(const Complex &x) = default;
+	Complex& operator=(const Complex &x) = default;
+	~Complex(){}
+	double real() const {
+		return _real;
+	}
+	double imag() const {
+		return _imag;
+	}
+    
+	Complex operator+() const {
 		return *this;
-    }
-    ~Complex() {}
+	}
+	Complex operator-() const {
+		return Complex(-_real, -_imag);
+	}
+	Complex& operator+=(double x) {
+		_real += x;
+		return *this;
+	}
+    Complex& operator+=(const Complex &x) {
+		_real += x._real;
+		_imag += x._imag;
+		return *this;
+	}
+	Complex operator+(double x) const {
+		Complex temp = *this;
+		temp += x;
+		return temp;
+	}
+	Complex operator+(const Complex &x) const {
+		Complex temp = *this;
+		temp += x;
+		return temp; 
+	}
 
-    Complex<T> operator+(const Complex<T> &x) const {
-        Complex<T> temp;
-        temp.real = real + x.real;
-        temp.imag = imag + x.imag;
-        return temp;
-    }
-    Complex<T>& operator+=(const Complex<T> &x) {
-        real += x.real;
-        imag += x.imag;
-        return *this;
-    }
+	Complex& operator-=(double x) {
+		_real -= x;
+		return *this;
+	}
+	Complex& operator-=(const Complex &x) {
+		_real -= x._real;
+		_imag -= x._imag;
+		return *this;
+	}
+	Complex operator-(double x) const {
+		Complex temp = *this;
+		temp -= x;
+		return temp;
+	}
+	Complex operator-(const Complex& x) const {
+	    Complex temp = *this;
+		temp -= x;
+		return temp;
+	}
 
-    Complex<T> operator-(const Complex<T> &x) const {
-        Complex<T> temp;
-        temp.real = real - x.real;
-        temp.imag = imag - x.imag;
-        return temp;
-    }
-    Complex<T>& operator-=(const Complex<T> &x) {
-        real -= x.real;
-        imag -= x.imag;
-        return *this;
-    }
+    Complex& operator*=(double x) {
+		_real *= x;
+		_imag *= x;
+		return *this;
+	}
+	Complex& operator*=(const Complex& x){
+		double temp = _real;
+		_real = _real * x._real - _imag * x._imag;
+		_imag = temp * x._imag + _imag * x._real;
+		return *this;
+	}
+	Complex operator*(double x) const {
+		Complex temp = *this;
+		temp *= x;
+		return temp;
+	}
+	Complex operator*(const Complex& x) const {
+	    Complex temp = *this;
+		temp *= x;
+		return temp;
+	}
 
-    Complex<T> operator*(const Complex<T> &x) const {
-        Complex<T> temp;
-        temp.real = real * x.real - imag * x.imag;
-        temp.imag = real * x.imag + imag * x.real;
-        return temp;
-    }
-    Complex<T>& operator*=(const Complex<T> &x) const {
-        Complex<T> old = *this;
-        real = old.real * x.real - old.imag * x.imag;
-        imag = old.real * x.imag + old.imag * x.real;
-        return *this;
-    }
-
-    //除零不做处理
-    Complex<T> operator/(const Complex<T> &x) const {
-        Complex<T> temp;
-        double squa = x.real * x.real + x.imag * x.imag;
-
-        temp.real = (real * x.real + imag - x.imag) / squa;
-        temp.imag = (imag * x.real - real * x.imag) / squa;
-        return temp;
-    }
-    Complex<T>& operator/=(const Complex<T> &x) const {
-        Complex<T> old = *this;
-        double squa = x.real * x.real + x.imag * x.imag;
-
-        real = (old.real * x.real + old.imag - x.imag) / squa;
-        imag = (old.imag * x.real - old.real * x.imag) / squa;
-        return *this;
-    }
-    /*ostream & operator<<(ostream &out) {
-        out << "(" << real << ", " << imag << ")";
-        return out;
-    }*/
-    void output() {
-        cout << "(" << real << ", " << imag << ")" << endl;
-    }
+	Complex& operator/=(double x) {
+		_real /= x;
+		_imag /= x;
+		return *this;
+	}
+	Complex& operator/=(const Complex& x) {
+		double squa = x._real * x._real + x._imag * x._imag;
+		double temp = _real;
+		_real = (_real * x._real + _imag * x._imag) / squa;
+		_imag = (_imag * x._real - temp * x._imag) / squa;
+		return *this;
+	}
+	Complex operator/(double x) const {
+	    Complex temp = *this;
+		temp /= x;
+		return temp;
+	}
+	Complex operator/(const Complex &x) const {
+		Complex temp = *this;
+		temp /= x;
+		return temp;
+	}
 };
 
+Complex operator+(double a, const Complex &b) {
+	return Complex(a) + b;
+}
+Complex operator-(double a, const Complex &b) {
+	return Complex(a) - b;
+}
+Complex operator*(double a, const Complex &b) {
+    return Complex(a) * b;
+}
+Complex operator/(double a, const Complex &b) {
+	return Complex(a) / b;
+}
+
+ostream& operator<<(ostream& out, const Complex &x) {
+	out << x.real() << " + " << x.imag() << "i";
+	return out;
+}
+
 int main() {
-    Complex<int> c1(1, 2), c2(3, 4);
-    Complex<int> add = c1 + c2;
-    add.output();
+	int a = 5;
+	Complex c1(1.1, 2.2), c2(3.3, 4.4);
+	//正负号
+	cout << +c1 << endl;
+	cout << -c1 << endl;
+	cout << "----------" << endl << endl;
+
+	//加法
+	cout << c1 + c2 << endl;
+	cout << a + c1 << endl;
+	cout << c1 + a << endl;
+	c1 += c2;
+	cout << c1 << endl;
+	c1 += a;
+	cout << c1 << endl;
+	cout << "----------" << endl << endl;
+	
+    //减法
+	cout << c1 - c2 << endl;
+	cout << a - c1 << endl;
+	cout << c1 - a << endl;
+	c1 -= c2;
+	cout << c1 << endl;
+	c1 -= a;
+	cout << c1 << endl;
+	cout << "----------" << endl << endl;
+	
+    //乘法
+	cout << c1 * c2 << endl;
+	cout << a * c1 << endl;
+	cout << c1 * a << endl;
+	c1 *= c2;
+	cout << c1 << endl;
+	c1 *= a;
+	cout << c1 << endl;
+	cout << "----------" << endl << endl;
+	
+    //除法
+	cout << c1 / c2 << endl;
+	cout << a / c1 << endl;
+	cout << c1 / a << endl;
+	c1 /= c2;
+	cout << c1 << endl;
+	c1 /= a;
+	cout << c1 << endl;
+	cout << "----------" << endl << endl;
     
-    Complex<double> d1(1.1, 2.2), d2(3.3, 4.4);
-    Complex<double> mul = c1 * d1;
-    mul.output();
-    
-    return 0;
+	return 0;
 }
 ```
+### 总结
+> 重载运算符
+- 为了实现加减乘除操作，除了需要重载 +、-、 \*、 /、 +=、 -=、\*=、/= 外，还需要重载正负运算符 +、- 。
+- / 和 /= 、\* 和 \*= 这些计算过程是相同的，需要对计算过程进行封装（这里是使用 /= 实现 /）；
+- 需要处理支持的情况有：
+  - Complex 与 Complex 运算；
+  - Complex 与 纯实数（int， double） 运算；
+
+> Complex 与 double 运算
+
+针对 Complex + double 这种情况：
+- 重载并不是必须的；
+- 当不重载时：
+  - double 会调用转换构造函数，隐式转换为 Complex ，变成 Complex + Complex 来计算；
+  - 优点，代码实现少（省去 Complex + double 的重载）；缺点，每次都要调用转换构造函数生成一个临时 Complex 对象，代码效率会降低。
+- 重载时（推荐）：需要实现 Complex + double 重载，但不会导致效率降低。
+
+针对 double + Complex 这种情况：
+- 重载是必须的； 
+  - double 也可以隐式转换，然后...所以也可以不重载吧？
+  - 实现 A + B的同时，也要求实现 A += B，两者是成套的，double + Complex这种情况可以解释，但 double += Complex 就解释不通了；
+  - 所以必须重载；
+
+> 关于运算符重载的两种方式
+
+运算符重载：
+- 第一种方式：作为类的成员函数来实现；
+- 第二种方式：作为全局函数来实现，通常该函数是一个友元函数（友元不是必须的，但此时需要通过 getter/setter 来访问成员变量）；

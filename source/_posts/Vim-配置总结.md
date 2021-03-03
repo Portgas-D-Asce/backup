@@ -1,5 +1,5 @@
 ---
-title: Vim 使用总结
+title: Vim 配置总结
 author: Portgas·D·Asce
 categories:
   - [Tools & Skills]
@@ -71,5 +71,5 @@ nnoremap j k
 nnoremap k j
 ```
 在命令模式下：
-- 修改前 $j$ 是向下移动光标，$k$ 是向上移动光标；
-- 修改后 $j$ 是向上移动光标，$k$ 是向下移动光标；
+- 修改前 : $j$ 是向下移动光标，$k$ 是向上移动光标；
+- 修改后 : $j$ 是向上移动光标，$k$ 是向下移动光标；
