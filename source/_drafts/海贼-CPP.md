@@ -89,6 +89,25 @@ int main() {
 ```
 
 ## 2.28
+### 构造函数与析构函数
+构造函数：负责初始化对象；
+析构函数：负责销毁对象；
+
+> 构造函数类型：
+默认构造函数（default constructor）：参数个数为零的构造函数；当没有定义时，编译器会自动生成一个；
+
+转换构造函数(conversion constructor)：参数个数为一的构造函数；隐式转换会调用转换构造函数，使用 explicit 禁止发生隐式转换；
+
+拷贝构造函数（copy constructor）：参数必须为常引用，否则会导致栈溢出；
+- 拷贝构造函数的语义就是复制一个一模一样的对象；
+- 一般来说，不能添加其它多余操作（如果添加其它操作，在涉及到临时变量时，可能会导致bug）
+- 加点小动作也是可以的，但前提代码逻辑不受拷贝构造函数调用次数影响：比方 share_ptr 的循环引用；
+
+移动构造函数（move constructor）：解决列效率问题，C++重回神坛的关键；
+
+赋值运算符：
+- 普通赋值运算符；
+- 移动赋值运算符；
 
 ```cpp
 
@@ -134,20 +153,158 @@ int main() {
 }
 ```
 
+### 静态成员变量/方法
+```cpp
+class A {
+public:
+    //类内声明
+    static void func();
+    static int x;
+};
 
-## 拷贝构造函数的语义
-传入对象 和 构造对象 的成员变量一模一样。
+//类外定义
+void A::func() {
+    //...
+}
 
-拷贝构造函数唯一需要考虑的问题就是 深/浅拷贝。
-
-改变语义会导致 构造对象 随拷贝构造函数调用次数不同而不同；
-
-## 返回值优化
-关掉返回值优化
-```bash
--fno-elide-constructors
+int A::x = 0;
 ```
 
+### const 成员方法
+方法中不允许对成员变量进行修改；
+
+### 对象与引用
+引用在定义的时候必须进行初始化；
+
+### C++中的结构体与类
+struct：访问权限默认为 public；
+class： 访问权限默认为 private；
+
+### 返回值优化(RVO)
+> 关掉返回值优化
+```bash
+g++ -fno-elide-constructors main.cpp
+```
+
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+    A() {
+        cout << "default constructor called" << endl;
+    }
+
+    A(int x) {
+        cout << "conversion constructor called" << endl;
+    }
+    A(const A &other) {
+        cout << "copy constructor called" << endl;
+    }
+    ~A() {
+        cout << "destructor called" << endl;
+    }
+};
+
+int main() {
+    A a = 5;
+    return 0;
+}
+```
+关闭掉返回值优化
+- 先调用转换构造函数生成一个临时对象；
+- 然后调用拷贝构造函数；
+- 析构临时对象；
+- 析构 a 对象；
+
+编译器优化后：
+- 直接调用转换构造函数；
+- 析构 a 对象；
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+    A() {
+        cout << "default constructor called" << endl;
+    }
+    A(int x) {
+        cout << "conversion constructor called" << endl;
+    }
+    A(const A &other) {
+        cout << "copy constructor called " << endl;
+    }
+
+	~A() {
+		cout << "destructor called" << endl;
+	}
+private:
+    int x;
+};
+
+A fun() {
+    A temp(1);
+	cout << &temp << endl;
+    return temp;
+}
+
+int main() {
+    A a = fun();
+	cout << &a << endl;
+    return 0;
+}
+/* 返回值优化结果
+conversion constructor called
+0x7ffffbd4fe74
+0x7ffffbd4fe74
+destructor called
+*/
+
+/* 关闭掉返回值优化
+conversion constructor called
+0x7ffdee571924
+copy constructor called 
+destructor called
+copy constructor called 
+destructor called
+0x7ffdee571950
+destructor called
+*/
+
+```
+关闭掉返回值优化：
+- 先调用转换构造函数生成对象 temp；
+- 然后调用拷贝构造函数将局部变量 拷贝到 fun 函数作用域外的一个临时变量，也就是返回值；
+- 接着调用拷贝构造函数将临时变量拷贝到 a 对象；
+
+编译器优化：
+- 直接用 a 替代 temp，所以两者的地址是一样的；
+
+
+注意：
+- 一般情况，编译器会对拷贝构造函数优化，但不对赋值运算符做优化； 
+- 所以轻易不要在拷贝构造函数中添加多余的处理操作，这与编译器所理解的拷贝构造函数不一致，导致它在不知情的情况下多做许多额外的操作；
+- 在拷贝构造函数中是可以加些小动作的，但前提是保证编译器偷偷调用没有副作用，例如 shared_ptr 的引用计数；         
+- 就是说，在保证构造函数语义的情况下，加点小动作是可以的，但是尽量不要；
+
+实现拷贝构造函数需要注意两点：
+- 第一点：深拷贝还是浅拷贝；
+- 第二点：添加的小动作，会不会改变拷贝构造的语义（偷偷摸摸调用拷贝构造函数没有副作用）；
+
+### 对象的初始化
+对象初始化：
+- 申请内存空间；
+- 调用匹配的构造函数
+
+
+### 其它
+变量：定义 + 初始化；
+
+函数： 函数声明 + 函数定义；
 ## 泛型编程
 在类中，使用Complex<T> 与 Complex 是一样的
 
@@ -164,3 +321,155 @@ int a = 3;
 double b = 4.4;
 
 //a + b 和 b + a 中，a都会隐式转换为 double 吧
+
+## 3.6
+### 运算符重载
+运算符的两种方式：
+- 类内重载：
+- 类外重载：
+
+不能重载的运算符：
+
+
+特殊的运算符重载
+- 数组对象：重载 [] 运算符的类的对象，其外在表象像一个数组；
+- 函数对象：重载 () 运算符的类的对象，其外在表象像一个函数，这个对象被称为仿函数；
+- 指针对象：重载 -> 运算符的类的对象；其外在表象像一个指针；
+- 它们得本质都是一个对象；
+
+> 函数对象示例：实现可自定义比较规则的快排
+```cpp
+#include <iostream>
+#include <functional>
+#include <vector>
+using namespace std;
+
+
+//仿函数类可以看作是一个 函数簇
+class Compare {
+public:
+	Compare(int type = 0) : _type(type) {
+
+	}
+	//相比普通函数仿函数可以做得更多
+	bool operator()(int a, int b) {
+		return _type & 1 ? a > b : a < b; 
+	}
+private:
+	int _type;
+};
+
+int partition(vector<int> &nums, int p, int r, const function<bool(int, int)> &cmp) {
+	int q = p;
+	for(int i = p; i < r; ++i) {
+		if(cmp(nums[i], nums[r])) {
+			swap(nums[i], nums[q++]);
+		}
+	}
+	swap(nums[q], nums[r]);
+	return q;
+}
+
+void quick_sort(vector<int> &nums, int p, int r, const function<bool(int, int)> &cmp) {
+	if(p >= r) return;
+    int q = partition(nums, p, r, cmp);
+	quick_sort(nums, p, q - 1, cmp);
+	quick_sort(nums, q + 1, r, cmp);
+}
+
+int main() {
+    srand(time(0));
+	vector<int> nums;
+	const int n = 10;
+	for(int i = 0; i < n; ++i) {
+	    nums.push_back(rand() % 100);
+	}
+	quick_sort(nums, 0, n - 1, Compare());
+	for(int i = 0; i < n; ++i) {
+	    cout << nums[i] << " ";
+	}
+	cout << endl;
+
+	quick_sort(nums, 0, n - 1, Compare(1));
+    for(int i = 0; i < n; ++i) {
+		cout << nums[i] << " ";
+	}
+	cout << endl;
+	return 0;
+}
+
+```
+
+> 指针对象示例：实现智能指针 shared_ptr。
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class A {
+public:
+    A(int x = 100) : _x(x) {}
+    int x() const {
+        return _x;
+    }
+    void x(int x) {
+        _x = x;
+    }
+private:
+    int _x;
+};
+
+class shared_ptr {
+public:
+	shared_ptr(A *ptr) : _cnt(new int(1)), _ptr(ptr) {};
+	shared_ptr(const shared_ptr &other) : _cnt(other._cnt), _ptr(other._ptr) {
+		*_cnt += 1;
+	}
+
+	shared_ptr& operator=(const shared_ptr &other) {
+		if(_ptr == other._ptr) return *this;
+		decrease_by_one();
+		_cnt = other._cnt;
+		*_cnt += 1;
+		_ptr = other._ptr;
+
+		return *this;
+	}
+	A* operator->() {
+		return _ptr;
+	}
+	A& operator*() {
+		return *_ptr;
+	}
+	int cnt() const {
+		return *_cnt;
+	}
+	~shared_ptr() {
+		decrease_by_one();
+	}
+private:
+	A *_ptr;
+	int *_cnt; 
+	void decrease_by_one() {
+		*_cnt -= 1;
+		if(*_cnt == 0) {
+			delete _ptr;
+			delete _cnt;
+		}
+	}
+};
+
+int main() {
+    shared_ptr sp1(new A());
+	shared_ptr sp2(sp1);
+	cout << sp1.cnt() << " " << sp2.cnt() << endl;
+	shared_ptr sp3(new A());
+	sp1 = sp3;
+	cout << sp1.cnt() << " " << sp2.cnt() << " " << sp3.cnt() << endl;
+
+    cout << sp3->x() << endl;
+    sp3->x(999);
+    cout << sp3->x() << endl;
+	return 0;
+}
+```

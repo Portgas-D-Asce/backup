@@ -73,3 +73,54 @@ nnoremap k j
 在命令模式下：
 - 修改前 : $j$ 是向下移动光标，$k$ 是向上移动光标；
 - 修改后 : $j$ 是向上移动光标，$k$ 是向下移动光标；
+
+## 5配置文件
+```bash
+inoremap ' ''<ESC>i
+inoremap " ""<ESC>i
+inoremap ( ()<ESC>i
+inoremap [ []<ESC>i
+inoremap { {<CR>}<ESC>O
+inoremap } {<CR>};<ESC>O
+
+"设置跳出自动补全的括号
+func SkipPair()
+    if getline('.')[col('.') - 1] == ')' || getline('.')[col('.') - 1] == ']' || getline('.')[col('.') - 1] == '"' || getline('.')[col('.') - 1] == "'" || getline('.')[col('.') - 1] == '}'
+        return "\<ESC>la"
+    else
+        return "\t"
+    endif
+endfunc
+" 将tab键绑定为跳出括号
+inoremap <TAB> <c-r>=SkipPair()<CR>
+
+set number
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set autoindent
+set cindent
+set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
+
+set tags=tags;
+set autochdir
+
+autocmd BufNewFile *.cpp,*.c,*.h exec ":call SetTitle()"
+func SetTitle() 
+    call setline(1, "/*************************************************************************") 
+    call append(line("."), "    > File Name: ".expand("%")) 
+    call append(line(".")+1, "    > Author: pk") 
+    call append(line(".")+2, "    > Mail: lupengkunmc@gmail.com ") 
+    call append(line(".")+3, "    > Created Time: ".strftime("%c")) 
+    call append(line(".")+4, " ************************************************************************/") 
+    call append(line(".")+5, "")
+
+    if expand("%:e") == 'h'
+ 	call append(line(".")+6, "#ifndef _".toupper(expand("%:r"))."_H")
+ 	call append(line(".")+7, "#define _".toupper(expand("%:r"))."_H")
+	call append(line(".")+8, "")
+ 	call append(line(".")+9, "#endif")
+    endif
+    "新建文件后，自动定位到文件末尾
+endfunc 
+```
