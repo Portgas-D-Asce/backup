@@ -57,6 +57,7 @@ sudo apt install vim-gtk
 ## 3 设置自动缩进
 ```cpp
 set number
+set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
@@ -94,33 +95,5 @@ endfunc
 " 将tab键绑定为跳出括号
 inoremap <TAB> <c-r>=SkipPair()<CR>
 
-set number
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set autoindent
-set cindent
-set cinoptions={0,1s,t0,n-2,p2s,(03s,=.5s,>1s,=1s,:1s
-
-set tags=tags;
-set autochdir
-
-autocmd BufNewFile *.cpp,*.c,*.h exec ":call SetTitle()"
-func SetTitle() 
-    call setline(1, "/*************************************************************************") 
-    call append(line("."), "    > File Name: ".expand("%")) 
-    call append(line(".")+1, "    > Author: pk") 
-    call append(line(".")+2, "    > Mail: lupengkunmc@gmail.com ") 
-    call append(line(".")+3, "    > Created Time: ".strftime("%c")) 
-    call append(line(".")+4, " ************************************************************************/") 
-    call append(line(".")+5, "")
-
-    if expand("%:e") == 'h'
- 	call append(line(".")+6, "#ifndef _".toupper(expand("%:r"))."_H")
- 	call append(line(".")+7, "#define _".toupper(expand("%:r"))."_H")
-	call append(line(".")+8, "")
- 	call append(line(".")+9, "#endif")
-    endif
-    "新建文件后，自动定位到文件末尾
-endfunc 
+jkk
 ```
