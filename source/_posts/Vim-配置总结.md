@@ -81,6 +81,7 @@ inoremap ' ''<ESC>i
 inoremap " ""<ESC>i
 inoremap ( ()<ESC>i
 inoremap [ []<ESC>i
+inoremap ] {}<ESC>i
 inoremap { {<CR>}<ESC>O
 inoremap } {<CR>};<ESC>O
 
@@ -95,5 +96,4 @@ endfunc
 " 将tab键绑定为跳出括号
 inoremap <TAB> <c-r>=SkipPair()<CR>
 
-jkk
 ```
