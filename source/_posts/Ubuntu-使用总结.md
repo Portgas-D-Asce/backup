@@ -9,7 +9,7 @@ date: 2021-03-04 22:40:05
 ---
 
 <!--more-->
-## 重装系统
+## ubuntu 重装系统
 ### N卡驱动
 ```bash
 # 查看推荐驱动
@@ -20,6 +20,12 @@ sudo apt install nvidia-driver-450
 
 # 重启
 sudo reboot
+```
+### 简单美化
+```bash
+sudo apt install gnome-tweak-tool
+
+sudo apt-get install gnome-shell-extension-autohidetopbar
 ```
 
 ### chrome
@@ -84,7 +90,16 @@ func SetTitle()
     "新建文件后，自动定位到文件末尾
 endfunc
 ```
+> ctags
+```bash
+sudo apt install ctags
+```
 
+> sshfs
+
+```bash
+sudo apt install sshfs
+```
 
 ### github 访问优化
 [访问网站](https://fastly.net.ipaddress.com/github.global.ssl.fastly.net)
@@ -124,6 +139,9 @@ sudo apt install npm
 
 sudo npm install -g hexo-cli
 ```
+### 软件安装
+钉钉，百度云盘，QQ音乐，vscode，蓝灯
+
 ## 笔记本合盖子后不休眠
 ```bash
 sudo vim /etc/systemd/logind.conf
@@ -169,3 +187,4 @@ telnet xxx.xxx.xxx.xxx port
 ```
 
 
+oofgbpoabipfcfjapgnbbjjaenockbdp
