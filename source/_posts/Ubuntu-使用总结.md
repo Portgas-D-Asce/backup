@@ -188,3 +188,5 @@ telnet xxx.xxx.xxx.xxx port
 
 
 oofgbpoabipfcfjapgnbbjjaenockbdp
+
+https://clients2.google.com/service/update2/crx?response=redirect&os=win&arch=x64&os_arch=x86_64&nacl_arch=x86-64&prod=chromecrx&prodchannel=&prodversion=77.0.3865.90&lang=zh-CN&acceptformat=crx2,crx3&x=id%3Doofgbpoabipfcfjapgnbbjjaenockbdp%26installsource%3Dondemand%26uc 

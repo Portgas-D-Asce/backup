@@ -33,10 +33,10 @@ categories:
     introduce: 涵盖：数据结构 & 算法 & 刷题套路。
     interest: Programming
   LeetCode: 
-    introduce: LeetCode 刷题笔记。
+    introduce: 一方面是为了监督自己时常刷题，另一方面是为了保证刷题质量。
     interest: Programming
   CodeForces: 
-    introduce: CodeForces 刷题笔记。
+    introduce: 一方面是为了监督自己时常刷题，另一方面是为了保证刷题质量。
     interest: Programming
   Git: 
     introduce:

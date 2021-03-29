@@ -9,7 +9,6 @@ date: 2021-03-17 18:19:57
 ---
 
 ```cpp
-
 #include <stdio.h>
 #include <unistd.h>
 #include <dirent.h>
@@ -19,9 +18,16 @@ date: 2021-03-17 18:19:57
 #include <string.h>
 #include <time.h>
 #include <stdlib.h>
+#include <sys/ioctl.h>
+#include <termios.h>
 
 #define max(a, b) ((a) > (b) ? (a) : (b))
 #define min(a, b) ((a) > (b) ? (b) : (a))
+
+#define COLOR(fg, bg, msg) "\033[1"#fg "" #bg "m" msg "\033[0m"
+#define FG_BLUE(msg) COLOR(;34, , msg)
+#define FG_GREEN(msg) COLOR(;32,, msg)
+#define BG_RED(msg) COLOR(;37, ;41, msg)
 
 enum OPTION {
 	OPTION_A = 1,
@@ -40,50 +46,14 @@ typedef struct node {
 } Node;
 
 Node *init(const char *file_name) {
-   Node *p = (Node *)malloc(sizeof(Node)); 
+   Node *p = (Node *)malloc(sizeof(Node));
    strcpy(p->name, file_name);
    p->next = NULL;
    return p;
 }
 
-Node *bubble_sort(Node *head) {
-    Node *end = NULL;
-    while(head != end) {
-       Node *cur = head;
-       Node *pre = NULL;
-       while(cur->next != end) {
-           char *s = cur->name;
-           //while(*s == '.') ++s;
-           char *t = cur->next->name;
-           //while(*t == '.') ++t;
-           if(strcmp(s, t) > 0) {
-               if(pre == NULL) {
-                   head = cur->next;
-                   cur->next = cur->next->next;
-                   head->next = cur;
-                   pre = head;
-               } else {
-                   pre->next = cur->next;
-                   cur->next = cur->next->next;
-                   pre->next->next = cur;
-                   pre = pre->next;
-               }
-           } else {
-               pre = cur;
-               cur = cur->next;
-           }
-       }
-       end = cur;
-    }
-    return head;
-}
-void clear(Node *head) {
-    Node *temp = NULL;
-    while(head) {
-       temp = head;
-       head = head->next;
-       free(temp);
-    }
+int cmp(const void *a, const void *b) {
+    return strcmp((*(Node **)a)->name, (*(Node **)b)->name);
 }
 
 char get_file_type(mode_t mode) {
@@ -161,33 +131,22 @@ void get_file_info(const struct stat *stp, Node *fp, int *len) {
     len[6] = max(strlen(fp->name), len[6]);
 }
 
-Node *get_dir_info(DIR *dirp, int flag, int *len) {
+void get_dir_info(DIR *dirp, int flag, Node **dir_info, int *len) {
     memset(len, 0, sizeof(int) * 7);
     struct dirent *dtp = NULL;
 	struct stat st;
-    Node *head = NULL;
+    int idx = 0;
     while(dtp = readdir(dirp)) {
         if(!(flag & OPTION_A) && dtp->d_name[0] == '.') continue;
 
 		fstatat(dirfd(dirp), dtp->d_name, &st, 0);
         Node *temp = init(dtp->d_name);
-        temp->next = head;
-        head = temp;
+        dir_info[idx++] = temp;
 
-        get_file_info(&st, head, len);
-    }
-    return head;
-}
-
-void print_space(int cnt) {
-    for(int i = 0; i < cnt; ++i) {
-        printf(" ");
+        get_file_info(&st, temp, len);
     }
 }
-#define COLOR(fg, bg, msg) "\033[1"#fg "" #bg "m" msg "\033[0m"
-#define FG_BLUE(msg) COLOR(;34, , msg)
-#define FG_GREEN(msg) COLOR(;32,, msg)
-#define BG_RED(msg) COLOR(;37, ;41, msg)
+
 void print_name(Node *fp) {
     char *dugo = fp->dugo;
     int is_dir = dugo[0] == 'd';
@@ -195,15 +154,20 @@ void print_name(Node *fp) {
     int is_own = dugo[3] == 's' || dugo[6] == 's';
 
     if(is_own) {
-        printf(BG_RED("%s")"\n", fp->name);
+        printf(BG_RED("%s"), fp->name);
     } else if(is_exe) {
         if(is_dir) {
-            printf(FG_BLUE("%s")"\n", fp->name);
+            printf(FG_BLUE("%s"), fp->name);
         } else {
-            printf(FG_GREEN("%s")"\n", fp->name);
+            printf(FG_GREEN("%s"), fp->name);
         }
     } else {
-        printf("%s\n", fp->name);
+        printf("%s", fp->name);
+    }
+}
+void print_space(int cnt) {
+    for(int i = 0; i < cnt; ++i) {
+        printf(" ");
     }
 }
 void print_file_info_detail(Node *fp, int *len) {
@@ -225,18 +189,65 @@ void print_file_info_detail(Node *fp, int *len) {
     printf("%s ", fp->time);
 
     print_name(fp);
+    printf("\n");
 }
-void print_dir_info_simple(Node *dir_info, int *len) {
-    Node *file_info = dir_info;
-    while(file_info) {
-        print_name(file_info);
-        file_info = file_info->next;
+
+void get_max_len(Node **dir_info, int n, int *len, int m) {
+    memset(len, 0, sizeof(int) * m);
+    int x = n / m;
+    int y = n % m;
+    for(int i = 0, z = 0; i < m; ++i) {
+        int k = x + (i < y ? 1 : 0);
+        for(int j = 0; j < k; ++j) {
+            char *s = dir_info[z++]->name;
+            len[i] = max(len[i], strlen(s));
+        }
     }
 }
-void print_dir_info_detail(Node *dir_info, int *len) {
-    while(dir_info) {
-        print_file_info_detail(dir_info, len);
-        dir_info = dir_info->next;
+int check(Node **dir_info, int n, int q, int w) {
+    int *len = (int *)malloc(sizeof(int) * q);
+    get_max_len(dir_info, n, len, q);
+    int sum = 0;
+    for(int i = 0; i < q; ++i) {
+        sum += len[i];
+    }
+    free(len);
+    return sum + 2 * q < w;
+}
+int binary_search10(Node **nums, int n, int w) {
+    int p = 1, r = n;
+    while(p < r) {
+        int q = p + r + 1 >> 1;
+        check(nums, n, q, w) ? (p = q) : (r = q - 1); 
+    }
+    return p;
+}
+void print_dir_info_simple(Node **dir_info, int n) {
+    struct winsize size;
+    ioctl(STDOUT_FILENO, TIOCGWINSZ, &size);
+    int w = size.ws_col; 
+    w = binary_search10(dir_info, n, w);
+    int *len = (int *)malloc(sizeof(int) * w);
+    get_max_len(dir_info, n, len, w);
+    
+    int x = n / w;
+    int y = n % w;
+    for(int i = 0; i < x + !!y; ++i) {
+        int k = i - x - 1;
+        for(int j = 0; j < w; ++j) {
+            k = k + x + (j <= y);
+            if(i == x && j >= y) break;
+            print_name(dir_info[k]);
+            print_space(len[j] - strlen(dir_info[k]->name) + 2);
+        }
+        printf("\n");
+    }
+    free(len);
+}
+
+void print_dir_info_detail(Node **dir_info, int n, int *len) {
+    for(int i = 0; i < n; ++i) {
+        print_file_info_detail(dir_info[i], len);
     }
 }
 
@@ -248,20 +259,37 @@ void ls_file(const struct stat *stp, const char *file_name, int flag) {
         print_file_info_detail(temp, len);
     } else {
         print_name(temp);
+        printf("\n");
     }
-    clear(temp);
+    free(temp);
 }
 
-void ls_dir(DIR * const dir, int flag) {
-    int len[7] = {0};
-    Node *dir_info = get_dir_info(dir, flag, len);
-    dir_info = bubble_sort(dir_info);
-    if(flag & OPTION_L) {
-        print_dir_info_detail(dir_info, len);
-    } else {
-        print_dir_info_simple(dir_info, len);
+int get_file_cnt(DIR *pdir, int flag) {
+    int cnt = 0;
+    struct dirent *pdt = NULL;
+    while((pdt = readdir(pdir)) != NULL) {
+        if(!(flag & OPTION_A) && pdt->d_name[0] == '.') continue;
+        ++cnt; 
     }
-    clear(dir_info);
+    return cnt;
+}
+
+void ls_dir(DIR * dir, int flag) {
+    int len[7] = {0};
+    int n = get_file_cnt(dir, flag);
+    rewinddir(dir);
+    Node **dir_info = (Node **)malloc(sizeof(Node *) * n); 
+    get_dir_info(dir, flag, dir_info, len);
+    qsort(dir_info, n, sizeof(Node *), cmp);
+    if(flag & OPTION_L) {
+        print_dir_info_detail(dir_info, n, len);
+    } else {
+        print_dir_info_simple(dir_info, n);
+    }
+    for(int i = 0; i < n; ++i) {
+        free(dir_info[i]);
+    }
+    free(dir_info);
 }
 
 void ls(const char *path, int flag) {
@@ -287,24 +315,20 @@ int main(int argc, char *argv[]) {
         switch(opt) {
 			case 'a':
 				flag |= OPTION_A;
-				//printf("a founded\n");
 				break;
 			case 'l' :
 				flag |= OPTION_L;
-				//printf("l founded\n");
 				break;
 		    default:
 				fprintf(stderr, "Usage: %s [-al]\n", argv[0]);
 				break;
 		}
 	}
-	//printf("argc = %d, optidx = %d\n", argc, optind);
+    //默认路径
     if(optind == argc) ls(".", flag);
 	for(int i = optind; i < argc; ++i) {
-		//printf("arg[%d] = %s\n", i, argv[i]);
 		ls(argv[i], flag);
 	}
-	//printf("flag = %d\n", flag);
 	return 0;
 }
 ```
