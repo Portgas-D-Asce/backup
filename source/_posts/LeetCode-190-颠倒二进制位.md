@@ -11,6 +11,7 @@ date: 2021-03-29 13:10:16
 
 <!--more-->
 
+题目直达：[LeetCode 190. 颠倒二进制位](https://leetcode-cn.com/problems/reverse-bits/)
 ## 循环
 时间复杂度 O(logn)。
 ```cpp

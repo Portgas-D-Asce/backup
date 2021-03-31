@@ -10,6 +10,7 @@ date: 2021-03-31 23:24:36
 ---
 
 <!--more-->
+题目直达：[LeetCode 74. 搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix/)
 ## 分析
 
 二分查找：查找某个数村不存在。
