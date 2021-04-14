@@ -473,3 +473,84 @@ int main() {
 	return 0;
 }
 ```
+
+## 单例模式
+本质：资源控制：
+- 设计模式；
+- 算法；
+
+如何设计：
+- 构造函数声明为私有，禁用拷贝构造函数；
+- 通过静态函数来获取对象指针；
+
+饿汉模式：
+- 编码稍微复杂，需要考虑线程问题；
+- 用到的时候才进行初始化，资源利用精确；
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class SingleInstance {
+public:
+    static SingleInstance *getInstance() {
+        if(single == nullptr) {
+            unique_lock<mutex> lock(Instance_mutex);
+            if(single == nullptr) {
+                single = new SingleInstance();
+            }
+        }
+        return single;
+    }
+private:
+    SingInstance() {}
+    SingleInstance(const SingleInstance &other) = delete;
+    static SingleInstance *single;
+    static mutex Instance_mutex;
+};
+
+SingleInstance *SingleInstance::single = nullptr;
+mutex SingleInstance::Instance_mutex;
+
+int main() {
+    SingleInstance *s1 = SingleInstance::getInstance();
+
+    return 0;
+}
+```
+
+懒汉模式：
+- 编码简单，无需考虑多线程加锁问题；
+- 不管用到还是没用到，都进行实例化，资源利用不精准，启动比较慢；
+
+```cpp
+#include <iostream>
+using namespace std;
+
+class SingleInstance {
+public:
+    static SingleInstance *getInstance() {
+        if(single == nullptr) {
+            single = new SingleInstance();
+        }
+        return single;
+    }
+private:
+    SingInstance() {}
+    SingleInstance(const SingleInstance &other) = delete;
+    static SingleInstance *single;
+};
+
+SingleInstance *SingleInstance::single = getInstance();
+
+int main() {
+    return 0;
+}
+```
+## 访问者模式
+
+忘了修改，导致bug，后期维护难
+
+效率问题；
+
+把功能封装成一个类。
