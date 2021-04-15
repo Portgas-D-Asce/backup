@@ -5,6 +5,7 @@ categories:
   - [LeetCode]
 tags:
   - 刷题
+  - 基础数据结构
   - 二叉树
 date: 2021-04-15 14:28:05
 ---
@@ -42,7 +43,7 @@ public:
             stk.pop();
             root = root->left;
         }
-        
+
         //结果反转
         reverse(res.begin(), res.end());
         return res;
